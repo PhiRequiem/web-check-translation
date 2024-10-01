@@ -90,7 +90,12 @@ const SslCertCard = (props: { data: any, title: string, actionButtons: any }): J
       { valid_from && <DataRow lbl="Renewed" val={formatDate(valid_from)} /> }
       { serialNumber && <DataRow lbl="Serial Num" val={serialNumber} /> }
       { fingerprint && <DataRow lbl="Fingerprint" val={fingerprint} /> }
+<<<<<<< HEAD
       { fingerprint && <DataRow lbl="Fingerprint" val={fingerprint} /> }
+=======
+      {/* // this line is repeated 
+      { fingerprint && <DataRow lbl="Fingerprint" val={fingerprint} /> } */}
+>>>>>>> parent of f4dd5d7 (Remove commented out duplicate line)
       { ext_key_usage && <ListRow title="Extended Key Usage" list={getExtendedKeyUsage(ext_key_usage)} /> }
       
     </Card>
