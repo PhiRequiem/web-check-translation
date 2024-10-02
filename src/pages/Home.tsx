@@ -7,7 +7,6 @@ import Input from 'components/Form/Input'
 import Button from 'components/Form/Button';
 import { StyledCard } from 'components/Form/Card';
 import Footer from 'components/misc/Footer';
-import FancyBackground from 'components/misc/FancyBackground';
 
 import docs from 'utils/docs';
 import colors from 'styles/colors';
@@ -37,15 +36,6 @@ const UserInputMain = styled.form`
   max-width: 50rem;
   z-index: 2;
 `;
-
-// const FindIpButton = styled.a`
-//   margin: 0.5rem;
-//   cursor: pointer;
-//   display: block;
-//   text-align: center;
-//   color: ${colors.primary};
-//   text-decoration: underline;
-// `;
 
 const ErrorMessage = styled.p`
   color: ${colors.danger};
@@ -153,7 +143,6 @@ const Home = (): JSX.Element => {
 
   return (
     <HomeContainer>
-      <FancyBackground />
       <UserInputMain onSubmit={formSubmitEvent}>
         <Heading as="h1" size="xLarge" align="center" color={colors.primary}>
           <img width="64" src="/web-check.png" alt="Web Check Icon" />
