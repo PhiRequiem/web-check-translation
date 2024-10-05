@@ -10,7 +10,6 @@ export const TextSizes = {
 
 export const TextReset = `
   font-size: ${TextSizes.small};
-  font-family: PTMono, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;

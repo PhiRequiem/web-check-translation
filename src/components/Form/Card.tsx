@@ -7,7 +7,6 @@ import { ReactNode } from 'react';
 
 export const StyledCard = styled.section<{ styles?: string}>`
   background: ${colors.backgroundLighter};
-  box-shadow: 4px 4px 0px ${colors.bgShadowColor};
   border-radius: 8px;
   padding: 1rem;
   position: relative;

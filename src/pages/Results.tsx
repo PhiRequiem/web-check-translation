@@ -107,7 +107,6 @@ const FilterButtons = styled.div`
     color: ${colors.textColor};
     border: none;
     border-radius: 4px;
-    font-family: 'PTMono';
     padding: 0.25rem 0.5rem;
     border: 1px solid transparent;
     transition: all 0.2s ease-in-out;
@@ -115,10 +114,8 @@ const FilterButtons = styled.div`
   button, .toggle-filters {
     cursor: pointer;
     text-transform: capitalize;
-    box-shadow: 2px 2px 0px ${colors.bgShadowColor};
     transition: all 0.2s ease-in-out;
     &:hover {
-      box-shadow: 4px 4px 0px ${colors.bgShadowColor};
       color: ${colors.primary};
     }
     &.selected {

@@ -38,7 +38,6 @@ const ModalWindow = styled.div`
   position: relative;
   animation: appear 0.5s;
   color: ${colors.textColor};
-  box-shadow: 4px 4px 0px ${colors.bgShadowColor};
   max-height: 80%;
   overflow-y: auto;
   @keyframes appear {

@@ -21,7 +21,6 @@ const LoadCard = styled(Card)`
 const ProgressBarContainer = styled.div`
   width: 100%;
   height: 0.5rem;
-  background: ${colors.bgShadowColor};
   border-radius: 4px;
   overflow: hidden;
 `;
@@ -137,7 +136,6 @@ const DismissButton = styled.button`
   border: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-family: PTMono;
   cursor: pointer;
   &:hover {
     color: ${colors.primary};
@@ -151,7 +149,6 @@ const FailedJobActionButton = styled.button`
   border: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  font-family: PTMono;
   cursor: pointer;
   border: 1px solid ${colors.textColorSecondary};
   transition: all 0.2s ease-in-out;

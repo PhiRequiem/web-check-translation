@@ -18,7 +18,6 @@ const HomeContainer = styled.section`
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-family: 'PTMono';
   padding: 0 1rem;
   footer {
     z-index: 1;
@@ -27,7 +26,6 @@ const HomeContainer = styled.section`
 
 const UserInputMain = styled.form`
   background: ${colors.backgroundLighter};
-  box-shadow: 4px 4px 0px ${colors.bgShadowColor};
   border-radius: 8px;
   padding: 1rem;
   z-index: 5;
@@ -85,7 +83,7 @@ const SiteFeaturesWrapper = styled(StyledCard)`
 `;
 
 const Home = (): JSX.Element => {
-  const defaultPlaceholder = 'e.g. https://duck.com/';
+  const defaultPlaceholder = 'e.g. https://chequea.la/';
   const [userInput, setUserInput] = useState('');
   const [errorMsg, setErrMsg] = useState('');
   const [placeholder] = useState(defaultPlaceholder);

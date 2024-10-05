@@ -6,7 +6,7 @@ const colors = {
   textColorSecondary: '#a4b1cd',
   background: '#141d2b',
   backgroundDarker: '#111927',
-  backgroundLighter: '#1a2332',
+  backgroundLighter: '#ffffff',
   bgShadowColor: '#0f1620',
   fgShadowColor: '#456602',
   primaryTransparent: '#9fef0012',
