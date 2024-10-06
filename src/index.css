@@ -72,7 +72,7 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background: var(--section-green);
   transition:
     color 0.5s,
     background-color 0.5s;
@@ -110,20 +110,13 @@ code {
 
 
 ::selection {
-  background: var(--primary, #9fef00);
-  color: var(--background, #141d2b);
+  background: var(--vt-green, #f1f6f1);
+  color: var(--background, #181818);
 }
 
-
-svg.rsm-svg {
-  background: #2a3240;
-  border-radius: 6px;
+footer {
+  color: var(--vt-blue);
 }
-
-:root {
-  --toastify-color-dark: #181818 !important;
-  --toastify-color-info: #04e4f4 !important;
-  --toastify-color-success: #20e253 !important;
-  --toastify-color-warning: #f6f000 !important;
-  --toastify-color-error: #f80363 !important;
+footer span {
+  color: var(--vt-purple-soft);
 }

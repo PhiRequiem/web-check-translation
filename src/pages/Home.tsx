@@ -5,10 +5,9 @@ import { useNavigate, NavigateOptions } from 'react-router-dom';
 import Heading from 'components/Form/Heading';
 import Input from 'components/Form/Input'
 import Button from 'components/Form/Button';
-import { StyledCard } from 'components/Form/Card';
 import Footer from 'components/misc/Footer';
 
-import docs from 'utils/docs';
+// import docs from 'utils/docs';
 import colors from 'styles/colors';
 import { determineAddressType } from 'utils/address-type-checker';
 
@@ -40,48 +39,6 @@ const ErrorMessage = styled.p`
   margin: 0.5rem;
 `;
 
-const SiteFeaturesWrapper = styled(StyledCard)`
-  margin: 1rem;
-  width: calc(100% - 2rem);
-  max-width: 50rem;
-  z-index: 2;
-  .links {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    a {
-      width: 100%;
-      button {
-        width: calc(100% - 2rem);
-      }
-    }
-    @media(max-width: 600px) {
-      flex-wrap: wrap;
-    }
-  }
-  ul {
-    -webkit-column-width: 150px;
-    -moz-column-width: 150px;
-    column-width: 150px;
-    list-style: none;
-    padding: 0 1rem;
-    font-size: 0.9rem;
-    li {
-      margin: 0.1rem 0;
-      text-indent: -1.2rem;
-      break-inside: avoid-column;
-    }
-    li:before {
-      content: '✓';
-      color: ${colors.primary};
-      margin-right: 0.5rem;
-    }
-  }
-  a {
-    color: ${colors.primary};
-  }
-`;
-
 const Home = (): JSX.Element => {
   const defaultPlaceholder = 'e.g. https://chequea.la/';
   const [userInput, setUserInput] = useState('');
@@ -96,9 +53,9 @@ const Home = (): JSX.Element => {
     const addressType = determineAddressType(address);
   
     if (addressType === 'empt') {
-      setErrMsg('Field must not be empty');
+      setErrMsg('El campo no debe estar vacío');
     } else if (addressType === 'err') {
-      setErrMsg('Must be a valid URL, IPv4 or IPv6 Address');
+      setErrMsg('Debe ser una URL válida, IPv4 o IPv6');
     } else {
       // if the addressType is 'url' and address doesn't start with 'http://' or 'https://', prepend 'https://'
       if (addressType === 'url' && !/^https?:\/\//i.test(address)) {
@@ -144,12 +101,12 @@ const Home = (): JSX.Element => {
       <UserInputMain onSubmit={formSubmitEvent}>
         <Heading as="h1" size="xLarge" align="center" color={colors.primary}>
           <img width="64" src="/web-check.png" alt="Web Check Icon" />
-          Web Check
+          Veni OSINT | Chequea.la
         </Heading>
         <Input
           id="user-input"
           value={userInput}
-          label="Enter a URL"
+          label="Introduce una URL"
           size="large"
           orientation="vertical"
           placeholder={placeholder}
@@ -158,29 +115,9 @@ const Home = (): JSX.Element => {
         />
         {/* <FindIpButton onClick={findIpAddress}>Or, find my IP</FindIpButton> */}
         { errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage>}
-        <Button styles="width: calc(100% - 1rem);" size="large" onClick={submit}>Analyze!</Button>
+        <Button styles="width: calc(100% - 1rem);" size="large" onClick={submit}>!Chequea mi web!</Button>
       </UserInputMain>
-      <SiteFeaturesWrapper>
-        <div className="features">
-          <Heading as="h2" size="small" color={colors.primary}>Supported Checks</Heading>
-          <ul>
-            {docs.map((doc, index) => (<li key={index}>{doc.title}</li>))}
-            <li><a href="/about">+ more!</a></li>
-          </ul>
-        </div>
-        <div className="links">
-          <a href="https://github.com/lissy93/web-check" title="Check out the source code and documentation on GitHub, and get support or contribute">
-            <Button>View on GitHub</Button>
-          </a>
-          <a href="https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/web-check" title="Deploy your own private or public instance of Web-Check to Netlify">
-            <Button>Deploy your own</Button>
-          </a>
-          <a href="/about#api-documentation" title="View the API documentation, to use Web-Check programmatically">
-            <Button>API Docs</Button>
-          </a>
-        </div>
-      </SiteFeaturesWrapper>
-      <Footer isFixed={true} />
+      <Footer />
     </HomeContainer>
   );
 }

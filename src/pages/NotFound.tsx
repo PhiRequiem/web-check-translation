@@ -60,7 +60,7 @@ const NotFound = (): JSX.Element => {
       <a href="https://github.com/lissy93/web-check">Report Issue</a>
     </NotFoundInner>
     </AboutContainer>
-    <Footer isFixed={true} />
+    <Footer />
     </>
   );
 };
