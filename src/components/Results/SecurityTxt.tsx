@@ -8,7 +8,7 @@ small {
   margin-top: 1rem;
   opacity: 0.5;
   display: block;
-  a { color: ${colors.primary}; }
+  a { color: blue}
 }
 summary {
   padding: 0.5rem 0 0 0.5rem !important;

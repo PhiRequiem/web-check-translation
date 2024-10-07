@@ -1,12 +1,12 @@
 import { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import { InputSize, applySize } from 'styles/dimensions';
 
 type Orientation = 'horizontal' | 'vertical';
 
 interface Props {
   id: string,
+  clase: string,
   value: string,
   label?: string,
   placeholder?: string,
@@ -28,21 +28,19 @@ const InputContainer = styled.div<StyledInputTypes>`
 `;
 
 const StyledInput = styled.input<StyledInputTypes>`
-  background: ${colors.background};
-  color: ${colors.textColor};
   border: none;
   border-radius: 0.25rem;
   font-family: PTMono;
-  box-shadow: 3px 3px 0px ${colors.backgroundDarker};
+  box-shadow: 3px 3px 0px black;
   &:focus {
-    outline: 1px solid ${colors.primary}
+    outline: 1px solid blue}
   }
 
   ${props => applySize(props.inputSize)};
 `;
 
 const StyledLabel = styled.label<StyledInputTypes>`
-  color: ${colors.textColor};
+  color: red;
   ${props => applySize(props.inputSize)};
   padding: 0;
   font-size: 1.6rem;
@@ -50,13 +48,14 @@ const StyledLabel = styled.label<StyledInputTypes>`
 
 const Input = (inputProps: Props): JSX.Element => {
 
-  const { id, value, label, placeholder, disabled, size, orientation, handleChange } = inputProps;
+  const { id, clase, value, label, placeholder, disabled, size, orientation, handleChange } = inputProps;
 
   return (
   <InputContainer orientation={orientation}>
     { label && <StyledLabel htmlFor={id} inputSize={size}>{ label }</StyledLabel> }
     <StyledInput
       id={id}
+      className={clase}
       value={value}
       placeholder={placeholder}
       disabled={disabled}

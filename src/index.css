@@ -113,10 +113,72 @@ code {
   background: var(--vt-green, #f1f6f1);
   color: var(--background, #181818);
 }
-
+.container-fluid {
+  --bs-gutter-x: none !important;
+}
 footer {
   color: var(--vt-blue);
 }
 footer span {
   color: var(--vt-purple-soft);
+}
+
+/* diseño al estilo chequea.la */
+
+h1 {
+  color: var(--vt-purple);
+}
+form-btn {
+  background-color: var(--vt-purple),
+}
+form-btn:hover {
+  background-color: var(--vt-purple-soft),
+}
+
+.navbar {
+  background-color: #fff;
+}
+.navbar .navbar-brand {
+  color: var(--vt-blue);
+  text-decoration: none;
+}
+.navbar .navbar-brand:hover {
+  color: var(--vt-purple-soft);
+  text-decoration: none;
+}
+.navbar .navbar-brand i {
+  color: var(--vt-purple-soft);
+}
+
+.form-control-sm {
+  font-size: 0.6rem !important; /* Tamaño de fuente pequeño */
+  margin: 0; /* Elimina el margen inferior */
+}
+
+p,
+li {
+  font-weight: 300;
+}
+h1.tophead {
+  color: #804fdc;
+}
+i {
+  margin-right: 8px;
+}
+.card {
+  border: none;
+  border-radius: 0.75rem;
+}
+
+.sexybtn {
+  background-color: var(--vt-blue) !important;
+  text-decoration: none;
+  font-weight: 500  !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)  !important;
+  transition-duration: 1s  !important;
+  color: #ffffff  !important;
+}
+.sexybtn:hover {
+  background-color: var(--vt-purple-soft)  !important;
+  transition-duration: 1s !important;
 }

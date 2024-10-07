@@ -8,7 +8,7 @@ const cardStyles = `
     align-items: baseline; 
   }
   .arrow-thing {
-    color: ${colors.primary};
+    color: blue;
     font-size: 1.8rem;
     font-weight: bold;
     margin-right: 0.5rem;

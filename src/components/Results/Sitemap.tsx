@@ -1,19 +1,18 @@
 
 import { Card } from 'components/Form/Card';
 import Row, { ExpandableRow } from 'components/Form/Row';
-import colors from 'styles/colors';
 
 const cardStyles = `
   max-height: 50rem;
   overflow-y: auto;
   a {
-    color: ${colors.primary};
+    color: blue;
   }
   small {
     margin-top: 1rem;
     opacity: 0.5;
     display: block;
-    a { color: ${colors.primary}; }
+    a { color: blue}
   }
 `;
 

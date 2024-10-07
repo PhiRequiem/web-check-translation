@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 import ErrorBoundary from 'components/misc/ErrorBoundary';
 import Heading from 'components/Form/Heading';
-import colors from 'styles/colors';
 import { ReactNode } from 'react';
 
 export const StyledCard = styled.section<{ styles?: string}>`
-  background: ${colors.backgroundLighter};
   border-radius: 8px;
   padding: 1rem;
   position: relative;
@@ -29,7 +27,7 @@ export const Card = (props: CardProps): JSX.Element => {
     <ErrorBoundary title={heading}>
       <StyledCard styles={styles}>
         { actionButtons && actionButtons }
-        { heading && <Heading className="inner-heading" as="h3" align="left" color={colors.primary}>{heading}</Heading> }
+        { heading && <Heading className="inner-heading" as="h3" align="left" color="black">{heading}</Heading> }
         {children}
       </StyledCard>
     </ErrorBoundary>

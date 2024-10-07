@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import { Card } from 'components/Form/Card';
 
 const RouteRow = styled.div`
@@ -17,12 +16,12 @@ p {
 }
 .arrow {
   font-size: 2.5rem;
-  color: ${colors.primary};
+  color: blue;
   margin-top: -1rem;
 }
 .times {
   font-size: 0.85rem;
-  color: ${colors.textColorSecondary};
+  color: bluelight;
 }
 .completed {
   text-align: center;

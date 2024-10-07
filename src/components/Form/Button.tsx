@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import colors from 'styles/colors';
 import { InputSize, applySize } from 'styles/dimensions';
 
 type LoadState = 'loading' | 'success' | 'error';
@@ -24,19 +23,19 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   gap: 1rem;
-  box-shadow: 3px 3px 0px ${colors.fgShadowColor};
+  box-shadow: 3px 3px 0px red;
   &:hover {
-    box-shadow: 5px 5px 0px ${colors.fgShadowColor};
+    box-shadow: 5px 5px 0px red;
   }
   &:active {
-    box-shadow: -3px -3px 0px ${colors.fgShadowColor};
+    box-shadow: -3px -3px 0px red;
   }
   ${props => applySize(props.size)};
   ${(props) => props.bgColor ?
-    `background: ${props.bgColor};` : `background: ${colors.primary};`
+    `background: ${props.bgColor};` : `background: red;`
   }
   ${(props) => props.fgColor ?
-    `color: ${props.fgColor};` : `color: ${colors.background};`
+    `color: ${props.fgColor};` : `color:red;`
   }
   ${props => props.styles}
 `;
@@ -49,7 +48,7 @@ const spinAnimation = keyframes`
 const SimpleLoader = styled.div`
   border: 4px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  border-top: 4px solid ${colors.background};
+  border-top: 4px solid red;
   width: 1rem;
   height: 1rem;
   animation: ${spinAnimation} 1s linear infinite;

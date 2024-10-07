@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import Heading from 'components/Form/Heading';
 
 export interface RowProps {
@@ -20,7 +19,7 @@ export const StyledRow = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 0.25rem;
-  &:not(:last-child) { border-bottom: 1px solid ${colors.primary}; }
+  &:not(:last-child) { border-bottom: 1px solid red; }
   span.lbl { font-weight: bold; }
   span.val {
     max-width: 16rem;
@@ -28,7 +27,7 @@ export const StyledRow = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     a {
-      color: ${colors.primary};
+      color: red;
     }
   }  
 `;
@@ -47,7 +46,7 @@ export const Details = styled.details`
     content: "►";
     position: absolute;
     margin-left: -1rem;
-    color: ${colors.primary};
+    color: red;
     cursor: pointer;
   }
   &[open] summary:before {
@@ -58,17 +57,17 @@ export const Details = styled.details`
 const SubRowList = styled.ul`
   margin: 0;
   padding: 0.25rem;
-  background: ${colors.primaryTransparent};
+  background: green;
 `;
 
 const SubRow = styled(StyledRow).attrs({
   as: "li"
 })`
-  border-bottom: 1px dashed ${colors.primaryTransparent} !important;
+  border-bottom: 1px dashed red !important;
 `;
 
 const PlainText = styled.pre`
-  background: ${colors.background};
+  background: green;
   width: 95%;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -77,7 +76,7 @@ const PlainText = styled.pre`
 `;
 
 const List = styled.ul`
-  // background: ${colors.background};
+  // background: gren;
   width: 95%;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -93,7 +92,7 @@ const List = styled.ul`
       text-transform: capitalize
     }
     &::marker {
-      color: ${colors.primary};
+      color: red;
     }
   }
 `;
@@ -182,7 +181,7 @@ export const ListRow = (props: { list: string[], title: string }) => {
   const { list, title } = props;
   return (
   <>
-    <Heading as="h4" size="small" align="left" color={colors.primary}>{title}</Heading>
+    <Heading as="h4" size="small" align="left" color="red">{title}</Heading>
     { list.map((entry: string, index: number) => {
       return (
       <Row lbl="" val="" key={`${entry}-${title.toLocaleLowerCase()}-${index}`}>

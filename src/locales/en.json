@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "brand": "Chequea.la",
+    "description": "We handle web incidents for organizations in Latin America.", 
+    "languages": {
+      "es": "Español",
+      "en": "English"
+    }
+  },
+  "footer": {
+    "part1": "Este es un proyecto de la comunidad",
+    "part2": "para la comunidad",
+    "highlight": "latinoamericana"
+  },
+  "home": {
+    "title": "Veni OSINT",
+    "welcome": "Welcome",
+    "defaultPlaceholder": "e.g. https://chequea.la/",
+    "errorEmptyField": "The field must not be empty",
+    "errorInvalidUrl": "It must be a valid URL, IPv4 or IPv6",
+    "inputLabel": "Enter your website URL",
+    "submitButton": "Check my website!",
+    "infotitle": "Why is it important to know the public information of your website?",
+    "paragraph1": "As human rights defenders, journalists, and activists, it is essential that we take steps to protect our digital platforms. The public information of your website, such as metadata or exposed security settings, can be used by malicious actors to compromise your security or that of your community.",
+    "paragraph2": "\"Veni OSINT\" is a tool designed to help you easily visualize this public information and provide a clear overview of potential risks. By knowing what data is accessible, you can take informed actions to improve your website's security and strengthen your digital protection.",
+    "paragraph3": "This tool is aimed at those fighting for a more just and secure world, providing them with the control and knowledge necessary to keep their digital work safe."
+  }
+}

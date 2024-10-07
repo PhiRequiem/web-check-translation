@@ -1,6 +1,5 @@
 
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import { Card } from 'components/Form/Card';
 import Row, { ExpandableRow } from 'components/Form/Row';
 
@@ -8,7 +7,7 @@ const Expandable = styled.details`
 margin-top: 0.5rem;
 cursor: pointer;
 summary::marker {
-  color: ${colors.primary};
+  color: red;
 }
 `;
 

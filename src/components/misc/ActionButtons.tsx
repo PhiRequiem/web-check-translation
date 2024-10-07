@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Button from 'components/Form/Button';
-import colors from 'styles/colors';
 
 const ActionButtonContainer = styled.div`
   position: absolute;
@@ -24,7 +23,7 @@ const actionButtonStyles = `
   text-align: center;
   width: 1.5rem;
   height: 1.5rem;
-  color: ${colors.textColor};
+  color: red;
   background: none;
   box-shadow: none;
   transition: all 0.2s ease-in-out;
@@ -32,8 +31,8 @@ const actionButtonStyles = `
   display: flex;
   align-items: center;
   &:hover {
-    color: ${colors.primary};
-    background: ${colors.backgroundDarker};
+    color: red;
+    background: red;
     box-shadow: none;
   }
 `;

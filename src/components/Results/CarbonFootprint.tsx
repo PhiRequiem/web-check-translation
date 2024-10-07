@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Card } from 'components/Form/Card';
 import Row from 'components/Form/Row';
-import colors from 'styles/colors';
 
 const LearnMoreInfo = styled.p`
 font-size: 0.8rem;
 margin-top: 0.5rem;
 opacity: 0.75;
-a { color: ${colors.primary}; }
+a { color: blue}
 `;
 
 const CarbonCard = (props: { data: any, title: string, actionButtons: any }): JSX.Element => {

@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 import { Card } from 'components/Form/Card';
 import Heading from 'components/Form/Heading';
-import colors from 'styles/colors';
 
 const cardStyles = `
   grid-row: span 2;
@@ -10,7 +9,7 @@ const cardStyles = `
     margin-top: 1rem;
     opacity: 0.5;
     display: block;
-    a { color: ${colors.primary}; }
+    a { color: blue}
   }
 `;
 
@@ -55,7 +54,7 @@ h4 {
     -webkit-line-clamp: 1;
   }
   a {
-    color: ${colors.primary};
+    color: blue;
     opacity: 0.75;
     &:hover { opacity: 1; }
   }
@@ -66,7 +65,7 @@ h4 {
   margin: 0.5rem 0;
 }
 &:not(:last-child) {
-  border-bottom: 1px solid ${colors.primary};
+  border-bottom: 1px solid blue;
 }
 &:hover {
   .tech-confidence {

@@ -2,7 +2,6 @@ import React, { Component, ErrorInfo, ReactNode } from "react";
 import styled from 'styled-components';
 import Card from 'components/Form/Card';
 import Heading from 'components/Form/Heading';
-import colors from 'styles/colors';
 
 interface Props {
   children: ReactNode;
@@ -15,7 +14,7 @@ interface State {
 }
 
 const ErrorText = styled.p`
-  color: ${colors.danger};
+  color: red;
 `;
 
 class ErrorBoundary extends Component<Props, State> {
@@ -38,7 +37,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <Card>
-          { this.props.title && <Heading color={colors.primary}>{this.props.title}</Heading> }
+          { this.props.title && <Heading color="red">{this.props.title}</Heading> }
           <ErrorText>This component errored unexpectedly</ErrorText>
           <p>
             Usually this happens if the result from the server was not what was expected.

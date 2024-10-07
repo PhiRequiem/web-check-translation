@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import Masonry from 'react-masonry-css'
 
-import colors from 'styles/colors';
 import Heading from 'components/Form/Heading';
 import Modal from 'components/Form/Modal';
 import Footer from 'components/misc/Footer';
@@ -103,8 +102,8 @@ const FilterButtons = styled.div`
     align-items: center;
   }
   button, input, .toggle-filters {
-    background: ${colors.backgroundLighter};
-    color: ${colors.textColor};
+    background: red;
+    color:blue
     border: none;
     border-radius: 4px;
     padding: 0.25rem 0.5rem;
@@ -116,19 +115,19 @@ const FilterButtons = styled.div`
     text-transform: capitalize;
     transition: all 0.2s ease-in-out;
     &:hover {
-      color: ${colors.primary};
+      color: red;
     }
     &.selected {
-      border: 1px solid ${colors.primary};
-      color: ${colors.primary};
+      border: 1px solid blue;
+      color: blue;
     }
   }
   input:focus {
-    border: 1px solid ${colors.primary};
+    border: 1px solid blue;
     outline: none;
   }
   .clear {
-    color: ${colors.textColor};
+    color: blue;
     text-decoration: underline;
     cursor: pointer;
     font-size: 0.8rem;
@@ -192,9 +191,9 @@ const Results = (): JSX.Element => {
         console.log(
           `%cFetch Success - ${job}%c\n\n${timeString}%c The ${job} job succeeded in ${timeTaken}ms`
           + `\n%cRun %cwindow.webCheck['${job}']%c to inspect the raw the results`,
-          `background:${colors.success};color:${colors.background};padding: 4px 8px;font-size:16px;`,
-          `font-weight: bold; color: ${colors.success};`,
-          `color: ${colors.success};`,
+          `background:"green";color:"blue";padding: 4px 8px;font-size:16px;`,
+          `font-weight: bold; color: "green;`,
+          `color: "green;`,
           `color: #1d8242;`,`color: #1d8242;text-decoration:underline;`,`color: #1d8242;`,
         );
         if (!(window as any).webCheck) (window as any).webCheck = {};
@@ -205,10 +204,10 @@ const Results = (): JSX.Element => {
         console.log(
           `%cFetch Error - ${job}%c\n\n${timeString}%c The ${job} job failed `
           +`after ${timeTaken}ms, with the following error:%c\n${error}`,
-          `background: ${colors.danger}; padding: 4px 8px; font-size: 16px;`,
-          `font-weight: bold; color: ${colors.danger};`,
-          `color: ${colors.danger};`,
-          `color: ${colors.warning};`,
+          `background: red; padding: 4px 8px; font-size: 16px;`,
+          `font-weight: bold; color: red;`,
+          `color: red;`,
+          `color: yellow;`,
         );
       }
       return newJobs;
@@ -853,7 +852,7 @@ const Results = (): JSX.Element => {
     <ResultsOuter>
       <Nav>
       { address && 
-        <Heading color={colors.textColor} size="medium">
+        <Heading color="blue" size="medium">
           { addressType === 'url' && <a href={address}><img width="32px" src={`https://icon.horse/icon/${makeSiteName(address)}`} alt="" /></a> }
           {makeSiteName(address)}
         </Heading>

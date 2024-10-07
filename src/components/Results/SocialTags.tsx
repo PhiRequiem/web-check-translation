@@ -1,7 +1,6 @@
 
 import { Card } from 'components/Form/Card';
 import Row from 'components/Form/Row';
-import colors from 'styles/colors';
 
 const cardStyles = `
   .banner-image img {
@@ -12,7 +11,7 @@ const cardStyles = `
   .color-field {
     border-radius: 4px;
     &:hover {
-      color: ${colors.primary};
+      color: blue;
     }
   }
 `;

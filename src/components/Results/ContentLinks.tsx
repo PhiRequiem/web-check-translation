@@ -24,7 +24,7 @@ const cardStyles = `
       content: "►";
       position: absolute;
       margin-left: -1rem;
-      color: ${colors.primary};
+      color: blue;
       cursor: pointer;
     }
     &[open] summary:before {

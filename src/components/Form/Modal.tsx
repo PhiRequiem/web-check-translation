@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import Button from 'components/Form/Button';
 
 interface ModalProps {
@@ -31,13 +30,11 @@ const Overlay = styled.div`
 const ModalWindow = styled.div`
   width: 80%;
   max-width: 500px;
-  background: ${colors.backgroundLighter};
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   animation: appear 0.5s;
-  color: ${colors.textColor};
   max-height: 80%;
   overflow-y: auto;
   @keyframes appear {

@@ -1,7 +1,6 @@
 
 import styled from 'styled-components';
 
-import colors from 'styles/colors';
 import Heading from 'components/Form/Heading';
 import Footer from 'components/misc/Footer';
 import Nav from 'components/Form/Nav';
@@ -17,7 +16,7 @@ const AboutContainer = styled.div`
     margin 1rem 0;
   }
   a {
-    color: ${colors.primary};
+    color: red;
   }
   .im-drink { font-size: 6rem; }
   header {
@@ -51,9 +50,9 @@ const NotFound = (): JSX.Element => {
     <AboutContainer>
     <Nav />
     <NotFoundInner>
-      <Heading as="h2" size="large" color={colors.primary}>404</Heading>
+      <Heading as="h2" size="large" color="red">404</Heading>
       <span className="im-drink">🥴</span>
-      <Heading as="h3" size="large" color={colors.primary}>Not Found</Heading>
+      <Heading as="h3" size="large" color="red">Not Found</Heading>
       <HeaderLinkContainer>
         <a href="/"><Button>Back to Homepage</Button></a>
       </HeaderLinkContainer>

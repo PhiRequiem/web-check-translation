@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import docs, { type Doc } from 'utils/docs';
-import colors from 'styles/colors';
 import Heading from 'components/Form/Heading';
 
 const JobDocsContainer = styled.div`
@@ -11,12 +10,12 @@ ul {
   padding: 0 0.5rem 0 1rem;
 }
 ul li a {
-  color: ${colors.primary};
+  color: $"red";
 }
-summary { color: ${colors.primary};}
+summary { color: $"red";}
 h4 {
-  border-top: 1px solid ${colors.primary};
-  color: ${colors.primary};
+  border-top: 1px solid $"red";
+  color: $"red";
   opacity: 0.75;
   padding: 0.5rem 0;
 }
@@ -26,7 +25,7 @@ const DocContent = (id: string) => {
   const doc = docs.filter((doc: Doc) => doc.id === id)[0] || null;
   return (
     doc? (<JobDocsContainer>
-      <Heading as="h3" size="medium" color={colors.primary}>{doc.title}</Heading>
+      <Heading as="h3" size="medium" color="red">{doc.title}</Heading>
       <Heading as="h4" size="small">About</Heading>
       <p className="doc-desc">{doc.description}</p>
       <Heading as="h4" size="small">Use Cases</Heading>

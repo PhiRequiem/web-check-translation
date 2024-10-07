@@ -1,12 +1,11 @@
 
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import { StyledCard } from 'components/Form/Card';
 
 const StyledSelfScanMsg = styled(StyledCard)`
   margin: 0px auto 1rem;
   width: 95vw;
-  a { color: ${colors.primary}; }
+  a { color: blue}
   b { font-weight: extra-bold; }
   span, i { opacity: 0.85; }
   img {

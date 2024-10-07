@@ -4,14 +4,13 @@ import { ServerLocation } from 'utils/result-processor';
 import { Card } from 'components/Form/Card';
 import LocationMap from 'components/misc/LocationMap';
 import Flag from 'components/misc/Flag';
-import { TextSizes } from 'styles/typography';
 import Row, { StyledRow } from 'components/Form/Row';
 
 const cardStyles = '';
 
 const SmallText = styled.span`
   opacity: 0.5;
-  font-size: ${TextSizes.xSmall};
+  
   text-align: right;
   display: block;
 `;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import Card from 'components/Form/Card';
 import Heading from 'components/Form/Heading';
 import { useState, useEffect, ReactNode } from 'react';
@@ -47,7 +46,7 @@ const Details = styled.details`
     content: "►";
     position: absolute;
     margin-left: -1rem;
-    color: ${colors.primary};
+    color: red;
     cursor: pointer;
   }
   &[open] summary:before {
@@ -62,13 +61,13 @@ const Details = styled.details`
       cursor: pointer;
     }
     i {
-      color: ${colors.textColorSecondary};
+      color: blue;
     }
   }
   p.error {
     margin: 0.5rem 0;
     opacity: 0.75;
-    color: ${colors.danger};
+    color: red;
   }
 `;
 
@@ -77,13 +76,13 @@ const StatusInfoWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   .run-status {
-    color: ${colors.textColorSecondary};
+    color: blue;
     margin: 0;
   }
 `;
 
 const AboutPageLink = styled.a`
-  color: ${colors.primary};
+  color: red;
 `;
 
 const SummaryContainer = styled.div`
@@ -97,21 +96,21 @@ const SummaryContainer = styled.div`
     opacity: 0.75;
   }
   &.error-info {
-    color: ${colors.danger};
+    color: red;
   }
   &.success-info {
-    color: ${colors.success};
+    color: green;
   }
   &.loading-info {
-    color: ${colors.info};
+    color: blue;
   }
   .skipped {
     margin-left: 0.75rem;
-    color: ${colors.warning};
+    color: orange;
   }
   .success {
     margin-left: 0.75rem;
-    color: ${colors.success};
+    color: green;
   }
 `;
 
@@ -131,30 +130,30 @@ const DismissButton = styled.button`
   position: absolute;
   right: 1rem;
   bottom: 1rem;
-  background: ${colors.background};
-  color: ${colors.textColorSecondary};
+  background: blue;
+  color: blue;
   border: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    color: ${colors.primary};
+    color: red;
   }
 `;
 
 const FailedJobActionButton = styled.button`
   margin: 0.1rem 0.1rem 0.1rem 0.5rem;
-  background: ${colors.background};
-  color: ${colors.textColorSecondary};
+  background: blue;
+  color: blue;
   border: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  border: 1px solid ${colors.textColorSecondary};
+  border: 1px solid blue;
   transition: all 0.2s ease-in-out;
   &:hover {
-    color: ${colors.primary};
-    border: 1px solid ${colors.primary};
+    color: red;
+    border: 1px solid red;
   } 
 `;
 
@@ -163,9 +162,9 @@ p {
   margin: 0;
 }
 pre {
-  color: ${colors.danger};
+  color: red;
   &.info {
-    color: ${colors.warning};
+    color: orange;
   }
 }
 `;
@@ -348,11 +347,11 @@ const ProgressLoader = (props: { loadStatus: LoadingJob[], showModal: (err: Reac
   };
 
   const barColors: Record<LoadingState | string, [string, string]> = {
-    'success': isDone ? makeBarColor(colors.primary) : makeBarColor(colors.success),
-    'loading': makeBarColor(colors.info),
-    'skipped': makeBarColor(colors.warning),
-    'error': makeBarColor(colors.danger),
-    'timed-out': makeBarColor(colors.neutral),
+    'success': isDone ? makeBarColor("blue") : makeBarColor("green"),
+    'loading': makeBarColor("blue"),
+    'skipped': makeBarColor("yellow"),
+    'error': makeBarColor("red"),
+    'timed-out': makeBarColor("purple"),
   };
 
   const getStatusEmoji = (state: LoadingState): string => {

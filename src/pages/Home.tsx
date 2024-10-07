@@ -2,49 +2,31 @@ import styled from 'styled-components';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate, NavigateOptions } from 'react-router-dom';
 
-import Heading from 'components/Form/Heading';
-import Input from 'components/Form/Input'
-import Button from 'components/Form/Button';
-import Footer from 'components/misc/Footer';
+import { useTranslation } from 'react-i18next';
 
 // import docs from 'utils/docs';
-import colors from 'styles/colors';
 import { determineAddressType } from 'utils/address-type-checker';
 
-const HomeContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const HomeContainer = styled.div`
   height: 100%;
-  padding: 0 1rem;
-  footer {
-    z-index: 1;
-  }
 `;
 
 const UserInputMain = styled.form`
-  background: ${colors.backgroundLighter};
-  border-radius: 8px;
-  padding: 1rem;
-  z-index: 5;
-  margin: 1rem;
-  width: calc(100% - 2rem);
-  max-width: 50rem;
-  z-index: 2;
+  text-align: center;
 `;
 
 const ErrorMessage = styled.p`
-  color: ${colors.danger};
+  color: red;
   margin: 0.5rem;
 `;
 
 const Home = (): JSX.Element => {
-  const defaultPlaceholder = 'e.g. https://chequea.la/';
+  const { t } = useTranslation();
+
+  const defaultPlaceholder = t('home.defaultPlaceholder');
   const [userInput, setUserInput] = useState('');
   const [errorMsg, setErrMsg] = useState('');
   const [placeholder] = useState(defaultPlaceholder);
-  const [inputDisabled] = useState(false);
   const navigate = useNavigate();
 
   /* Check is valid address, either show err or redirect to results page */
@@ -53,9 +35,9 @@ const Home = (): JSX.Element => {
     const addressType = determineAddressType(address);
   
     if (addressType === 'empt') {
-      setErrMsg('El campo no debe estar vacío');
+      setErrMsg(t('home.errorEmptyField'));
     } else if (addressType === 'err') {
-      setErrMsg('Debe ser una URL válida, IPv4 o IPv6');
+      setErrMsg(t('home.errorInvalidUrl'));
     } else {
       // if the addressType is 'url' and address doesn't start with 'http://' or 'https://', prepend 'https://'
       if (addressType === 'url' && !/^https?:\/\//i.test(address)) {
@@ -75,7 +57,7 @@ const Home = (): JSX.Element => {
   };
 
   // const findIpAddress = () => {
-  //   setUserInput('');
+  //   setUserInput('home.');
   //   setPlaceholder('Looking up your IP...');
   //   setInputDisabled(true);
   //   fetch('https://ipapi.co/json/')
@@ -97,28 +79,41 @@ const Home = (): JSX.Element => {
   }
 
   return (
-    <HomeContainer>
-      <UserInputMain onSubmit={formSubmitEvent}>
-        <Heading as="h1" size="xLarge" align="center" color={colors.primary}>
-          <img width="64" src="/web-check.png" alt="Web Check Icon" />
-          Veni OSINT | Chequea.la
-        </Heading>
-        <Input
-          id="user-input"
-          value={userInput}
-          label="Introduce una URL"
-          size="large"
-          orientation="vertical"
-          placeholder={placeholder}
-          disabled={inputDisabled}
-          handleChange={inputChange}
-        />
-        {/* <FindIpButton onClick={findIpAddress}>Or, find my IP</FindIpButton> */}
-        { errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage>}
-        <Button styles="width: calc(100% - 1rem);" size="large" onClick={submit}>!Chequea mi web!</Button>
-      </UserInputMain>
-      <Footer />
-    </HomeContainer>
+    <div className='container-fluid green-section'>
+      <HomeContainer className='container py-5'>
+      <div className="row">
+        <div className='col-md-6 offset-md-3'>
+          <div className='card border-light text-center mb-5'>
+            <div className="card-body px-md-5 py-md-5 text-right">
+              <UserInputMain onSubmit={formSubmitEvent}>
+              <h1 className="mb-4 display-5 text-center tophead"><i className="bi bi-diagram-3"></i> {t('home.title')}</h1>
+              <div className="mb-3">
+              <label htmlFor="user-input" className="form-label">{t('home.inputLabel')}</label>
+                <input id='user-input' className="form-control form-control-lg" type="text" placeholder={placeholder} aria-label=".form-control-lg example" onChange={inputChange} value={userInput}/>
+              </div>
+
+                {/* <FindIpButton onClick={findIpAddress}>Or, find my IP</FindIpButton> */}
+                { errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage>}
+                <div className="d-grid gap-2">
+                  <button type="button" className="btn btn-lg form-btn sexybtn" onClick={submit}>{t('home.submitButton')}</button>
+                </div>
+
+              </UserInputMain>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div className='card border-light px-md-5 py-md-4 text-center'>
+          <div className="card-body text-start">
+            <h3 className="mb-4 fw-light text-center tophead">{t('home.infotitle')}</h3>
+            <p>{t('home.paragraph1')}</p>
+            <p>{t('home.paragraph2')}</p>
+            <p className='mb-0'>{t('home.paragraph3')}</p>
+            </div>
+        </div>
+      </HomeContainer>
+    </div>
   );
 }
 

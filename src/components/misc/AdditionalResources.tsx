@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import { Card } from 'components/Form/Card';
 
 const ResourceListOuter = styled.ul`
@@ -15,10 +14,10 @@ li a.resource-wrap {
   align-items: start;
   gap: 0.25rem;
   padding: 0.25rem 0.5rem;
-  background: ${colors.background};
+  background: red;
   border-radius: 8px;
   text-decoration: none;
-  color: ${colors.textColor};
+  color: red;
   height: 100%;
 
   transition: all 0.2s ease-in-out;
@@ -27,13 +26,14 @@ li a.resource-wrap {
   border-radius: 0.25rem;
   box-sizing: border-box; 
   width: -moz-available;
-  box-shadow: 3px 3px 0px ${colors.backgroundDarker};
+  box-shadow: 3px 3px 0px red;
   &:hover {
-    box-shadow: 5px 5px 0px ${colors.backgroundDarker};
+    box-shadow: 5px 5px 0px red
+    ;
     a { opacity: 1; }
   }
   &:active {
-    box-shadow: -3px -3px 0px ${colors.fgShadowColor};
+    box-shadow: -3px -3px 0px red;
   }
 }
 img {
@@ -45,7 +45,7 @@ p, a {
   margin: 0;
 }
 .resource-link {
-  color: ${colors.primary};
+  color: blue;
   opacity: 0.75;
   font-size: 0.9rem;
   transition: all 0.2s ease-in-out;
@@ -66,7 +66,7 @@ p, a {
   flex-direction: column;
   gap: 0.1rem;
   .resource-description {
-    color: ${colors.textColorSecondary};
+    color: red;
     font-size: 0.9rem;
   }
 }
@@ -76,7 +76,7 @@ const Note = styled.small`
   margin-top: 1rem;
   opacity: 0.5;
   display: block;
-  a { color: ${colors.primary}; }
+  a { color: blue}
 `;
 
 const CardStyles = `

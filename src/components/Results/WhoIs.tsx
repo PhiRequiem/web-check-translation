@@ -1,7 +1,6 @@
 
 import styled from 'styled-components';
 import { Whois } from 'utils/result-processor';
-import colors from 'styles/colors';
 import { Card } from 'components/Form/Card';
 import Heading from 'components/Form/Heading';
 
@@ -9,7 +8,7 @@ const Row = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0.25rem;
-  &:not(:last-child) { border-bottom: 1px solid ${colors.primary}; }
+  &:not(:last-child) { border-bottom: 1px solid red; }
   span.lbl { font-weight: bold; }
   span.val {
     max-width: 200px;
@@ -43,7 +42,7 @@ const ListRow = (props: { list: string[], title: string }) => {
   const { list, title } = props;
   return (
   <>
-    <Heading as="h3" size="small" align="left" color={colors.primary}>{title}</Heading>
+    <Heading as="h3" size="small" align="left" color="red">{title}</Heading>
     { list.map((entry: string, index: number) => {
       return (
       <Row key={`${title.toLocaleLowerCase()}-${index}`}><span>{ entry }</span></Row>

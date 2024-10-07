@@ -5,7 +5,6 @@ import {
   Annotation,
 } from 'react-simple-maps';
 
-import colors from 'styles/colors';
 import MapFeatures from 'assets/data/map-features.json';
 
 interface Props {
@@ -28,8 +27,8 @@ const MapChart = (location: Props) => {
     >
       <Geographies
         geography={MapFeatures}
-        fill={colors.backgroundDarker}
-        stroke={colors.primary}
+        fill="black"
+        stroke="blue"
         strokeWidth={0.5}
       >
         {({ geographies }: any) =>
@@ -43,12 +42,12 @@ const MapChart = (location: Props) => {
         dx={-80}
         dy={-80}
         connectorProps={{
-          stroke: colors.textColor,
+          stroke: "red",
           strokeWidth: 3,
           strokeLinecap: "round"
         }}
       >
-        <text x="-8" textAnchor="end" fill={colors.textColor} fontSize={25}>
+        <text x="-8" textAnchor="end" fill="red" fontSize={25}>
           {label || "Server"}
         </text>
       </Annotation>

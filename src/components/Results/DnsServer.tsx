@@ -9,7 +9,7 @@ const cardStyles = `
     margin-top: 1rem;
     opacity: 0.5;
     display: block;
-    a { color: ${colors.primary}; }
+    a { color: blue}
   }
 `;
 

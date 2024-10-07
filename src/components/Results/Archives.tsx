@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import colors from 'styles/colors';
 import { Card } from 'components/Form/Card';
 import Row from 'components/Form/Row';
 
@@ -8,7 +7,7 @@ opacity: 0.5;
 display: block;
 margin-top: 0.5rem;
 a {
-  color: ${colors.primary};
+  color: blue;
 }
 `;
 

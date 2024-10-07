@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { TextSizes } from 'styles/typography';
 
 interface HeadingProps {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'p';
@@ -18,7 +17,6 @@ const StyledHeading = styled.h1<HeadingProps>`
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-  font-size: ${TextSizes.medium};
   img { // Some titles have an icon
     width: 2.5rem;
     border-radius: 4px;
@@ -30,11 +28,11 @@ const StyledHeading = styled.h1<HeadingProps>`
   }
   ${props => {
     switch (props.size) {
-      case 'xSmall': return `font-size: ${TextSizes.xSmall};`;
-      case 'small': return `font-size: ${TextSizes.small};`;
-      case 'medium': return `font-size: ${TextSizes.large};`;
-      case 'large': return `font-size: ${TextSizes.xLarge};`;
-      case 'xLarge': return `font-size: ${TextSizes.xLarge};`;
+      case 'xSmall': return `font-size: 1em`;
+      case 'small': return `font-size: 1em`;
+      case 'medium': return `font-size: 1em`;
+      case 'large': return `font-size: 1em;`;
+      case 'xLarge': return `font-size: 1em`;
     }
   }};
   ${props => {

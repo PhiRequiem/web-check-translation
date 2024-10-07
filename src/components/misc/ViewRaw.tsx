@@ -12,7 +12,7 @@ transition: all 0.2s ease-in-out;
 display: flex;
 flex-direction: column;
 a {
-  color: ${colors.primary};
+  color: blue;
 }
 .controls {
   display: flex;

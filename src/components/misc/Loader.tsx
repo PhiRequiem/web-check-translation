@@ -43,7 +43,7 @@ const StyledSvg = styled.svg`
   width: 200px;
   margin: 0 auto;
   path {
-    fill: ${colors.primary};
+    fill: blue;
     &:nth-child(2) { opacity: 0.8; }
     &:nth-child(3) { opacity: 0.5; }
   }

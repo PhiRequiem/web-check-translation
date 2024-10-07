@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import { StyledCard } from 'components/Form/Card';
 import Heading from 'components/Form/Heading';
-import colors from 'styles/colors';
 import { ReactNode } from 'react';
 
 const Header = styled(StyledCard)`
@@ -19,7 +18,7 @@ const Header = styled(StyledCard)`
 const Nav = (props: { children?: ReactNode}) => {
   return (
     <Header as="header">
-    <Heading color={colors.primary} size="large">
+    <Heading color="red" size="large">
       <img width="64" src="/web-check.png" alt="Web Check Icon" />
       <a href="/">Web Check</a>
     </Heading>
