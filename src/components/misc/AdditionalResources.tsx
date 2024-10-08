@@ -209,7 +209,7 @@ const makeLink = (resource: any, scanUrl: string | undefined): string => {
 
 const AdditionalResources = (props: { url?: string }): JSX.Element => {
   const { t } = useTranslation();
-  return (<Card heading={t('additionalresources.heading')} styles={CardStyles}>
+  return (<Card heading={t('additionalresources.note.heading')} styles={CardStyles}>
     <ResourceListOuter>
       {
         resources.map((resource, index) => {
