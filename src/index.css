@@ -142,7 +142,7 @@ form-btn:hover {
   color: var(--vt-blue);
   text-decoration: none;
 }
-.navbar .navbar-brand:hover {
+.navbar .navbar-brand:hover, .navbar .navbar-brand:active {
   color: var(--vt-purple-soft);
   text-decoration: none;
 }

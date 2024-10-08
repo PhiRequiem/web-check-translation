@@ -27,7 +27,7 @@ const Menu = (): JSX.Element => {
         <nav className="navbar navbar-expand-lg">
             <div className="container py-1 d-flex align-items-center">
                 <div className="text-start">
-                <a className="navbar-brand fw-bold fs-3 me-0" href="/">
+                <a className="navbar-brand fw-bold fs-3 me-0" href="https://chequea.la">
                 <i className="bi bi-search-heart pe-2"></i>{t('navbar.brand')}
                 </a>
                 <form className="form-inline d-inline-flex form-select-xs">

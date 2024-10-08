@@ -25,5 +25,89 @@
     "paragraph1": "Como personas defensoras de derechos humanos, periodistas y activistas, es fundamental que tomemos medidas para proteger nuestras plataformas digitales. La información pública de tu sitio web, como los metadatos o configuraciones de seguridad expuestas, puede ser utilizada por actores malintencionados para vulnerar tu seguridad o la de tu comunidad.",
     "paragraph2": "\"Veni OSINT\" es una herramienta diseñada para ayudarte a visualizar de manera sencilla esta información pública y ofrecerte un panorama claro sobre posibles riesgos. Al conocer qué datos son accesibles, podrás tomar medidas informadas para mejorar la seguridad de tu sitio web y así fortalecer tu protección digital.",
     "paragraph3": "Esta herramienta está dirigida a aquellos que luchan por un mundo más justo y seguro, brindándoles el control y conocimiento necesarios para mantener su trabajo digital fuera de peligro."
+  },
+  "progressbar": {
+    "finishedIn": "Finalizado en",
+    "running": "Ejecutando",
+    "of": "de",
+    "job": "tarea",
+    "jobs": "tareas",
+    "skipped": "omitidas",
+    "successful": "exitosas",
+    "failed": "fallidas",
+    "loading": "Cargando {{loaded}} / {{total}} Tareas",
+    "completedSuccessfully": "{{count}} Tareas Completadas Exitosamente",
+    "error": {
+    "modal": {
+      "title": "Detalles del error para {{name}}",
+      "description": "El trabajo {{name}} falló con un estado {{state}} después de {{timeTaken}} ms.",
+      "serverResponse": "El servidor respondió con el siguiente error:"
+    },
+    "checkConsole": "Revisa la consola del navegador para logs y más información",
+    "explanation": "Es normal que algunos trabajos fallen, ya sea porque el host no devuelve la información requerida, o restricciones en la función lambda, o alcanzar un límite de API."
+    },
+    "button": {
+      "showLoadState": "Mostrar estado de carga",
+      "retry": "Reintentar",
+      "showError": "Mostrar error",
+      "showReason": "Mostrar razón",
+      "dismiss": "Descartar"
+    },
+    "details": {
+      "show": "Mostrar detalles",
+      "took": "Tardó"
+    },
+    "link": {
+      "learnMore": "Aprende más sobre Web-Check"
+    },
+    "status": {
+      "loading": "Cargando",
+      "success": "Éxito",
+      "error": "Error",
+      "skipped": "Omitido",
+      "timed-out": "Tiempo excedido"
+    }
+  },
+  "results": {
+    "filters": {
+      "label": {
+        "filterBy": "Filtrar por",
+        "search": "Buscar"
+      },
+      "tags": {
+        "server": "Servidor",
+        "client": "Cliente",
+        "meta": "Meta"
+      },
+      "clear": "Limpiar filtros",
+      "placeholder": {
+        "filterResults": "Filtrar resultados"
+      },
+      "hide": "Ocultar",
+      "show": "Mostrar filtros",
+      "export": "Exportar datos",
+      "learnAboutResults": "Aprender sobre los resultados",
+      "moreTools": "Más herramientas",
+      "viewGitHub": "Ver GitHub"
+    }
+  },
+  "additionalresources": {
+    "note": {
+      "heading": "Herramientas Externas para Investigación Adicional",
+      "disclaimer": "Estas herramientas no están afiliadas con Chequea.la. Úselas bajo su propio riesgo.",
+      "availability": "En el momento de su inclusión, todas las anteriores estaban disponibles y eran gratuitas; si esto cambia, por favor repórtelo a través de GitHub"
+    }
+  },
+  "viewRaw": {
+    "heading": "Ver / Descargar Datos en Crudo",
+    "download": "Descargar Resultados",
+    "view": "Ver Resultados",
+    "update": "Actualizar Resultados",
+    "hide": "Ocultar Resultados",
+    "available": "Tus resultados están disponibles para ver",
+    "here": "aqí",
+    "iframeTitle": "Resultados, vía JSON Hero",
+    "error": "¡Error HTTP! Estado: {{status}}",
+    "info": "Estos son los resultados en bruto generados desde tu URL, en formato JSON. Puedes importarlos a tu propio programa para más análisis."
   }
 }

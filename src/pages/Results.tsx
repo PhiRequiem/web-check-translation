@@ -6,7 +6,6 @@ import Masonry from 'react-masonry-css'
 
 import Heading from 'components/Form/Heading';
 import Modal from 'components/Form/Modal';
-import Footer from 'components/misc/Footer';
 import Nav from 'components/Form/Nav';
 import { RowProps }  from 'components/Form/Row';
 
@@ -56,6 +55,7 @@ import ThreatsCard from 'components/Results/Threats';
 import TlsCipherSuitesCard from 'components/Results/TlsCipherSuites';
 import TlsIssueAnalysisCard from 'components/Results/TlsIssueAnalysis';
 import TlsClientSupportCard from 'components/Results/TlsClientSupport';
+import { useTranslation } from 'react-i18next';
 
 import keys from 'utils/get-keys';
 import { determineAddressType, AddressType } from 'utils/address-type-checker';
@@ -84,12 +84,12 @@ const ResultsContent = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1rem;
   margin: auto;
-  width: calc(100% - 2rem);
+  width: 100%;
   padding-bottom: 1rem;
 `;
 
 const FilterButtons = styled.div`
-  width: 95vw;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -102,12 +102,11 @@ const FilterButtons = styled.div`
     align-items: center;
   }
   button, input, .toggle-filters {
-    background: red;
-    color:blue
+    background: #86a5d9;
+    color: white;
     border: none;
     border-radius: 4px;
     padding: 0.25rem 0.5rem;
-    border: 1px solid transparent;
     transition: all 0.2s ease-in-out;
   }
   button, .toggle-filters {
@@ -115,10 +114,10 @@ const FilterButtons = styled.div`
     text-transform: capitalize;
     transition: all 0.2s ease-in-out;
     &:hover {
-      color: red;
+      background: #86a5d9;
+      color: white;
     }
     &.selected {
-      border: 1px solid blue;
       color: blue;
     }
   }
@@ -847,82 +846,99 @@ const Results = (): JSX.Element => {
     setModalContent(content);
     setModalOpen(true);
   };
+
+
+
+
+
+  const { t } = useTranslation();
+
   
   return (
-    <ResultsOuter>
-      <Nav>
-      { address && 
-        <Heading color="blue" size="medium">
-          { addressType === 'url' && <a href={address}><img width="32px" src={`https://icon.horse/icon/${makeSiteName(address)}`} alt="" /></a> }
-          {makeSiteName(address)}
-        </Heading>
-        }
-      </Nav>
-      <ProgressBar loadStatus={loadingJobs} showModal={showErrorModal} showJobDocs={showInfo} />
-      { address?.includes(window?.location?.hostname || 'web-check.xyz') && <SelfScanMsg />}
-      <Loader show={loadingJobs.filter((job: LoadingJob) => job.state !== 'loading').length < 5} />
-      <FilterButtons>{ showFilters ? <>
-        <div className="one-half">
-        <span className="group-label">Filter by</span>
-        {['server', 'client', 'meta'].map((tag: string) => (
-          <button
-            key={tag}
-            className={tags.includes(tag) ? 'selected' : ''}
-            onClick={() => updateTags(tag)}>
-              {tag}
-          </button>
-        ))}
-        {(tags.length > 0 || searchTerm.length > 0) && <span onClick={clearFilters} className="clear">Clear Filters</span> }
-        </div>
-        <div className="one-half">
-        <span className="group-label">Search</span>
-        <input 
-          type="text" 
-          placeholder="Filter Results" 
-          value={searchTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <span className="toggle-filters" onClick={() => setShowFilters(false)}>Hide</span>
-        </div>
-        </> : (
-          <div className="control-options">
-            <span className="toggle-filters" onClick={() => setShowFilters(true)}>Show Filters</span>
-            <a href="#view-download-raw-data"><span className="toggle-filters">Export Data</span></a>
-            <a href="/about"><span className="toggle-filters">Learn about the Results</span></a>
-            <a href="/about#additional-resources"><span className="toggle-filters">More tools</span></a>
-            <a href="https://github.com/lissy93/web-check"><span className="toggle-filters">View GitHub</span></a>
-          </div>
-      ) }
-      </FilterButtons>
-      <ResultsContent>
-        <Masonry
-          breakpointCols={{ 10000: 12, 4000: 9, 3600: 8, 3200: 7, 2800: 6, 2400: 5, 2000: 4, 1600: 3, 1200: 2, 800: 1 }}
-          className="masonry-grid"
-          columnClassName="masonry-grid-col">
-          {
-            resultCardData
-            .map(({ id, title, result, tags, refresh, Component }, index: number) => {
-              const show = (tags.length === 0 || tags.some(tag => tags.includes(tag)))
-              && title.toLowerCase().includes(searchTerm.toLowerCase())
-              && (result && !result.error);
-              return show ? (
-                <ErrorBoundary title={title}>
-                  <Component
-                    key={`${title}-${index}`}
-                    data={{...result}}
-                    title={title}
-                    actionButtons={refresh ? makeActionButtons(title, refresh, () => showInfo(id)) : undefined}
-                  />
-                </ErrorBoundary>
-            ) : null})
+    <ResultsOuter className='container-fluid green-section'>
+      <div className="container">
+        <Nav>
+        { address &&
+          <Heading className='display-6 tophead'>
+            { addressType === 'url' && <a href={address}><img width="28px" src={`https://icon.horse/icon/${makeSiteName(address)}`} alt="" /></a> }
+            {makeSiteName(address)}
+          </Heading>
           }
-          </Masonry>
-      </ResultsContent>
-      <ViewRaw everything={resultCardData} />
-      <AdditionalResources url={address} />
-      <Footer />
-      <Modal isOpen={modalOpen} closeModal={()=> setModalOpen(false)}>{modalContent}</Modal>
-      <ToastContainer limit={3} draggablePercent={60} autoClose={2500} theme="dark" position="bottom-right" />
+        </Nav>
+        <div className='card border-light mb-5 px-4 pt-4'>
+          <ProgressBar loadStatus={loadingJobs} showModal={showErrorModal} showJobDocs={showInfo} />
+          { address?.includes(window?.location?.hostname || 'web-check.xyz') && <SelfScanMsg />}
+        </div>
+          <Loader show={loadingJobs.filter((job: LoadingJob) => job.state !== 'loading').length < 5} />
+        <FilterButtons>{ showFilters ? <>
+          <div className="one-half">
+          <span className="group-label">{t('results.filters.label.filterBy')}</span>
+          {['server', 'client', 'meta'].map((tag: string) => (
+            <button
+              key={tag}
+              className={tags.includes(tag) ? 'selected' : ''}
+              onClick={() => updateTags(tag)}>
+                {tag}
+            </button>
+          ))}
+          {(tags.length > 0 || searchTerm.length > 0) && <span onClick={clearFilters} className="clear">{t('results.filters.clear')}</span> }
+          </div>
+          <div className="one-half">
+          <span className="group-label">{t('results.filters.label.search')}</span>
+          <input
+            type="text"
+            placeholder={t('results.filters.placeholder.filterResults')}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <span className="toggle-filters" onClick={() => setShowFilters(false)}>{t('results.filters.hide')}</span>
+          </div>
+          </> : (
+            <div className="control-options">
+              <span className="toggle-filters" onClick={() => setShowFilters(true)}>{t('results.filters.show')}</span>
+            <a href="#view-download-raw-data"><span className="toggle-filters">{t('results.filters.export')}</span></a>
+            <a href="/about"><span className="toggle-filters">{t('results.filters.learnAboutResults')}</span></a>
+            {/* <a href="/about#additional-resources"><span className="toggle-filters">{t('results.filters.moreTools')}</span></a> */}
+            {/* <a href="https://github.com/lissy93/web-check"><span className="toggle-filters">{t('results.filters.viewGitHub')}</span></a> */}
+            </div>
+        ) }
+
+
+
+
+
+
+
+        </FilterButtons>
+        <ResultsContent>
+          <Masonry
+            breakpointCols={{ 10000: 12, 4000: 9, 3600: 8, 3200: 7, 2800: 6, 2400: 5, 2000: 4, 1600: 3, 1200: 2, 800: 1 }}
+            className="masonry-grid"
+            columnClassName="masonry-grid-col">
+            {
+              resultCardData
+              .map(({ id, title, result, tags, refresh, Component }, index: number) => {
+                const show = (tags.length === 0 || tags.some(tag => tags.includes(tag)))
+                && title.toLowerCase().includes(searchTerm.toLowerCase())
+                && (result && !result.error);
+                return show ? (
+                  <ErrorBoundary title={title}>
+                    <Component
+                      key={`${title}-${index}`}
+                      data={{...result}}
+                      title={title}
+                      actionButtons={refresh ? makeActionButtons(title, refresh, () => showInfo(id)) : undefined}
+                    />
+                  </ErrorBoundary>
+              ) : null})
+            }
+            </Masonry>
+        </ResultsContent>
+        <ViewRaw everything={resultCardData} />
+        <AdditionalResources url={address} />
+        <Modal isOpen={modalOpen} closeModal={()=> setModalOpen(false)}>{modalContent}</Modal>
+        <ToastContainer limit={3} draggablePercent={60} autoClose={2500} theme="dark" position="bottom-right" />
+      </div>
     </ResultsOuter>
   );
 }

@@ -24,5 +24,91 @@
     "paragraph1": "As human rights defenders, journalists, and activists, it is essential that we take steps to protect our digital platforms. The public information of your website, such as metadata or exposed security settings, can be used by malicious actors to compromise your security or that of your community.",
     "paragraph2": "\"Veni OSINT\" is a tool designed to help you easily visualize this public information and provide a clear overview of potential risks. By knowing what data is accessible, you can take informed actions to improve your website's security and strengthen your digital protection.",
     "paragraph3": "This tool is aimed at those fighting for a more just and secure world, providing them with the control and knowledge necessary to keep their digital work safe."
+  },
+  "progressbar": {
+    "finishedIn": "Finished in",
+    "running": "Running",
+    "of": "of",
+    "job": "job",
+    "jobs": "jobs",
+    "skipped": "skipped",
+    "successful": "successful",
+    "failed": "failed",
+    "loading": "Loading {{loaded}} / {{total}} Jobs",
+    "completedSuccessfully": "{{count}} Jobs Completed Successfully",
+
+
+    "error": {
+    "modal": {
+      "title": "Error Details for {{name}}",
+      "description": "The {{name}} job failed with an {{state}} state after {{timeTaken}} ms.",
+      "serverResponse": "The server responded with the following error:"
+    },
+    "checkConsole": "Check the browser console for logs and more info",
+    "explanation": "It's normal for some jobs to fail, either because the host doesn't return the required info, or restrictions in the lambda function, or hitting an API limit."
+    },
+    "button": {
+      "showLoadState": "Show Load State",
+      "retry": "Retry",
+      "showError": "Show Error",
+      "showReason": "Show Reason",
+      "dismiss": "Dismiss"
+    },
+    "details": {
+      "show": "Show Details",
+      "took": "Took"
+    },
+    "link": {
+      "learnMore": "Learn More about Web-Check"
+    },
+    "status": {
+      "loading": "Loading",
+      "success": "Success",
+      "error": "Error",
+      "skipped": "Skipped",
+      "timed-out": "Time exceeded"
+    }
+  },
+  "results": {
+    "filters": {
+      "label": {
+        "filterBy": "Filter by",
+        "search": "Search"
+      },
+      "tags": {
+        "server": "Server",
+        "client": "Client",
+        "meta": "Meta"
+      },
+      "clear": "Clear Filters",
+      "placeholder": {
+        "filterResults": "Filter Results"
+      },
+      "hide": "Hide",
+      "show": "Show Filters",
+      "export": "Export Data",
+      "learnAboutResults": "Learn about the Results",
+      "moreTools": "More tools",
+      "viewGitHub": "View GitHub"
+    }
+  },
+  "additionalresources": {
+    "note": {
+      "heading": "External Tools for Further Research",
+      "disclaimer": "These tools are not affiliated with Chequea.la. Please use them at your own risk.",
+      "availability": "At the time of listing, all of the above were available and free to use - if this changes, please report it via GitHub"
+    }
+  },
+  "viewRaw": {
+    "heading": "View / Download Raw Data",
+    "download": "Download Results",
+    "view": "View Results",
+    "update": "Update Results",
+    "hide": "Hide Results",
+    "available": "Your results are available to view",
+    "here": "here",
+    "iframeTitle": "Results, via JSON Hero",
+    "error": "HTTP error! status: {{status}}",
+    "info": "These are the raw results generated from your URL, and in JSON format. You can import these into your own program, for further analysis."
   }
 }

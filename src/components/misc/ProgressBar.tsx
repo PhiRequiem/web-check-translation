@@ -3,10 +3,12 @@ import Card from 'components/Form/Card';
 import Heading from 'components/Form/Heading';
 import { useState, useEffect, ReactNode } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 
 const LoadCard = styled(Card)`
   margin: 0 auto 1rem auto;
-  width: 95vw;
+  width: 100%;
   position: relative;
   transition: all 0.2s ease-in-out;
   &.hidden {
@@ -46,7 +48,7 @@ const Details = styled.details`
     content: "►";
     position: absolute;
     margin-left: -1rem;
-    color: red;
+    color: #b288ff;
     cursor: pointer;
   }
   &[open] summary:before {
@@ -61,13 +63,13 @@ const Details = styled.details`
       cursor: pointer;
     }
     i {
-      color: blue;
+      color: #7D7AB;
     }
   }
   p.error {
     margin: 0.5rem 0;
     opacity: 0.75;
-    color: red;
+    color: #EF767A;
   }
 `;
 
@@ -76,13 +78,13 @@ const StatusInfoWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   .run-status {
-    color: blue;
+    color: #b288ff;
     margin: 0;
   }
 `;
 
 const AboutPageLink = styled.a`
-  color: red;
+  color: #b288ff;
 `;
 
 const SummaryContainer = styled.div`
@@ -96,21 +98,24 @@ const SummaryContainer = styled.div`
     opacity: 0.75;
   }
   &.error-info {
-    color: red;
+    color: #EF767A;
   }
   &.success-info {
-    color: green;
+    color: #23F0C7;
   }
   &.loading-info {
-    color: blue;
+    color: #7D7ABC;
   }
   .skipped {
     margin-left: 0.75rem;
-    color: orange;
+    color: #FFE347;
   }
   .success {
     margin-left: 0.75rem;
-    color: green;
+    color: #23F0C7;
+  }
+  .error {
+    margin-left: 0.75rem;
   }
 `;
 
@@ -130,30 +135,28 @@ const DismissButton = styled.button`
   position: absolute;
   right: 1rem;
   bottom: 1rem;
-  background: blue;
-  color: blue;
+  background: #dee2e6;
+  color: #6c757d;
   border: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   cursor: pointer;
   &:hover {
-    color: red;
+    color: #495057;
   }
 `;
 
 const FailedJobActionButton = styled.button`
   margin: 0.1rem 0.1rem 0.1rem 0.5rem;
-  background: blue;
-  color: blue;
+  background: #b288ff;
+  color: white;
   border: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  border: 1px solid blue;
   transition: all 0.2s ease-in-out;
   &:hover {
-    color: red;
-    border: 1px solid red;
+    color: #23F0C7;
   } 
 `;
 
@@ -162,7 +165,7 @@ p {
   margin: 0;
 }
 pre {
-  color: red;
+  color: #EF767A;
   &.info {
     color: orange;
   }
@@ -207,7 +210,7 @@ const jobNames = [
   'tls-cipher-suites',
   'tls-security-config',
   'tls-client-support',
-  'redirects',
+  'Airects',
   'linked-pages',
   'robots-txt',
   'status',
@@ -279,33 +282,41 @@ const MillisecondCounter = (props: {isDone: boolean}) => {
 };
 
 const RunningText = (props: { state: LoadingJob[], count: number }): JSX.Element => {
+  const { t } = useTranslation(); 
   const loadingTasksCount = jobNames.length - props.state.filter((val: LoadingJob) => val.state === 'loading').length;
   const isDone = loadingTasksCount >= jobNames.length;
   return (
     <p className="run-status">
-    { isDone ? 'Finished in ' : `Running ${loadingTasksCount} of ${jobNames.length} jobs - ` }
-    <MillisecondCounter isDone={isDone} />
+    {isDone 
+        ? t('progressbar.finishedIn') 
+        : `${t('progressbar.running')} ${loadingTasksCount} ${t('progressbar.of')} ${jobNames.length} ${t('progressbar.jobs')} - `}
+      <MillisecondCounter isDone={isDone} />
     </p>
   );
 };
 
+
+
 const SummaryText = (props: { state: LoadingJob[], count: number }): JSX.Element => {
+  const { t } = useTranslation();
   const totalJobs = jobNames.length;
   let failedTasksCount = props.state.filter((val: LoadingJob) => val.state === 'error').length;
   let loadingTasksCount = props.state.filter((val: LoadingJob) => val.state === 'loading').length;
   let skippedTasksCount = props.state.filter((val: LoadingJob) => val.state === 'skipped').length;
   let successTasksCount = props.state.filter((val: LoadingJob) => val.state === 'success').length;
 
-  const jobz = (jobCount: number) => `${jobCount} ${jobCount === 1 ? 'job' : 'jobs'}`;
+  const jobz = (jobCount: number) => `${jobCount} ${jobCount === 1 ? t('progressbar.job') : t('progressbar.jobs')}`;
 
-  const skippedInfo = skippedTasksCount > 0 ? (<span className="skipped">{jobz(skippedTasksCount)} skipped </span>) : null;
-  const successInfo = successTasksCount > 0 ? (<span className="success">{jobz(successTasksCount)} successful </span>) : null;
-  const failedInfo = failedTasksCount > 0 ? (<span className="error">{jobz(failedTasksCount)} failed </span>) : null;
+  
+  const skippedInfo = skippedTasksCount > 0 ? (<span className="skipped">{jobz(skippedTasksCount)} {t('progressbar.skipped')}</span>) : null;
+  const successInfo = successTasksCount > 0 ? (<span className="success">{jobz(successTasksCount)} {t('progressbar.successful')}</span>) : null;
+  const failedInfo = failedTasksCount > 0 ? (<span className="error">{jobz(failedTasksCount)} {t('progressbar.failed')}</span>) : null;
+
 
   if (loadingTasksCount > 0) {
     return (
       <SummaryContainer className="loading-info">
-        <b>Loading {totalJobs - loadingTasksCount} / {totalJobs} Jobs</b>
+        <b>{t('progressbar.loading', { loaded: totalJobs - loadingTasksCount, total: totalJobs })}</b>
         {skippedInfo}
       </SummaryContainer>
     );
@@ -314,7 +325,7 @@ const SummaryText = (props: { state: LoadingJob[], count: number }): JSX.Element
   if (failedTasksCount === 0) {
     return (
       <SummaryContainer className="success-info">
-        <b>{successTasksCount} Jobs Completed Successfully</b>
+        <b>{t('progressbar.completedSuccessfully', { count: successTasksCount })}</b>
         {skippedInfo}
       </SummaryContainer>
     );
@@ -329,7 +340,17 @@ const SummaryText = (props: { state: LoadingJob[], count: number }): JSX.Element
   );
 };
 
+
+
+
+
+
+
+
+
+
 const ProgressLoader = (props: { loadStatus: LoadingJob[], showModal: (err: ReactNode) => void, showJobDocs: (job: string) => void }): JSX.Element => {
+  const { t } = useTranslation(); 
   const [ hideLoader, setHideLoader ] = useState<boolean>(false);
   const loadStatus = props.loadStatus;
   const percentages = calculateLoadingStatePercentages(loadStatus);
@@ -347,11 +368,11 @@ const ProgressLoader = (props: { loadStatus: LoadingJob[], showModal: (err: Reac
   };
 
   const barColors: Record<LoadingState | string, [string, string]> = {
-    'success': isDone ? makeBarColor("blue") : makeBarColor("green"),
-    'loading': makeBarColor("blue"),
-    'skipped': makeBarColor("yellow"),
-    'error': makeBarColor("red"),
-    'timed-out': makeBarColor("purple"),
+    'success': isDone ? makeBarColor("#23F0C7") : makeBarColor("#b288ff"),
+    'loading': makeBarColor("#804fdc"),
+    'skipped': makeBarColor("#FFE347"),
+    'error': makeBarColor("#EF767A"),
+    'timed-out': makeBarColor("#7D7ABC"),
   };
 
   const getStatusEmoji = (state: LoadingState): string => {
@@ -371,17 +392,26 @@ const ProgressLoader = (props: { loadStatus: LoadingJob[], showModal: (err: Reac
     }
   };
 
+
+
+
+
+
+
+
+
+
   const showErrorModal = (name: string, state: LoadingState, timeTaken: number | undefined, error: string, isInfo?: boolean) => {
+    
     const errorContent = (
       <ErrorModalContent>
-        <Heading as="h3">Error Details for {name}</Heading>
-        <p>
-          The {name} job failed with an {state} state after {timeTaken} ms.
-          The server responded with the following error:
-        </p>
-        { /* If isInfo == true, then add .info className to pre */}
-        <pre className={isInfo ? 'info' : 'error'}>{error}</pre>
-      </ErrorModalContent>
+      <Heading as="h3">{t('progressbar.error.modal.title', { name })}</Heading>
+      <p>
+        {t('progressbar.error.modal.description', { name, state, timeTaken })}
+        {t('progressbar.error.modal.serverResponse')}
+      </p>
+      <pre className={isInfo ? 'info' : 'error'}>{error}</pre>
+    </ErrorModalContent>
     );
     props.showModal(errorContent);
   };
@@ -389,20 +419,20 @@ const ProgressLoader = (props: { loadStatus: LoadingJob[], showModal: (err: Reac
   return (
   <>
   <ReShowContainer className={!hideLoader ? 'hidden' : ''}>
-    <DismissButton onClick={() => setHideLoader(false)}>Show Load State</DismissButton>
-  </ReShowContainer>
+        <DismissButton onClick={() => setHideLoader(false)}>{t('progressbar.button.showLoadState')}</DismissButton>
+      </ReShowContainer>
   <LoadCard className={hideLoader ? 'hidden' : ''}>
-    <ProgressBarContainer>
-      {Object.keys(percentages).map((state: string | LoadingState) =>
-        <ProgressBarSegment 
-          color={barColors[state][0]} 
-          color2={barColors[state][1]} 
-          title={`${state} (${Math.round(percentages[state])}%)`}
-          width={percentages[state]}
-          key={`progress-bar-${state}`}
-        />
-      )}
-    </ProgressBarContainer>
+        <ProgressBarContainer>
+          {Object.keys(percentages).map((state: string | LoadingState) => (
+            <ProgressBarSegment 
+              color={barColors[state][0]} 
+              color2={barColors[state][1]} 
+              title={`${t(`progressbar.status.${state}`)} (${Math.round(percentages[state])}%)`} // Traducción del estado
+              width={percentages[state]}
+              key={`progress-bar-${state}`}
+            />
+          ))}
+        </ProgressBarContainer>
     
     <StatusInfoWrapper>
       <SummaryText state={loadStatus} count={loadStatus.length} />
@@ -410,32 +440,29 @@ const ProgressLoader = (props: { loadStatus: LoadingJob[], showModal: (err: Reac
     </StatusInfoWrapper>
 
     <Details>
-      <summary>Show Details</summary>
+    <summary>{t('progressbar.details.show')}</summary>
       <ul>
-        {
-          loadStatus.map(({ name, state, timeTaken, retry, error }: LoadingJob) => {
-            return (
-              <li key={name}>
-                <b onClick={() => props.showJobDocs(name)}>{getStatusEmoji(state)} {name}</b>
-                <span style={{color : barColors[state][0]}}> ({state})</span>.
-                <i>{(timeTaken && state !== 'loading') ? ` Took ${timeTaken} ms` : '' }</i>
-                { (retry && state !== 'success' && state !== 'loading') && <FailedJobActionButton onClick={retry}>↻ Retry</FailedJobActionButton> }
-                { (error && state === 'error') && <FailedJobActionButton onClick={() => showErrorModal(name, state, timeTaken, error)}>■ Show Error</FailedJobActionButton> }
-                { (error && state === 'skipped') && <FailedJobActionButton onClick={() => showErrorModal(name, state, timeTaken, error, true)}>■ Show Reason</FailedJobActionButton> }
-              </li>
-            );
-          })
-        }
+      {
+              loadStatus.map(({ name, state, timeTaken, retry, error }: LoadingJob) => (
+                <li key={name}>
+                  <b onClick={() => props.showJobDocs(name)}>{getStatusEmoji(state)} {name}</b>
+                  <span style={{ color: barColors[state][0] }}> ({t(`progressbar.status.${state}`)})</span> {/* Traducción del estado */}
+                  <i>{(timeTaken && state !== 'loading') ? `${t('progressbar.details.took')} ${timeTaken} ms` : ''}</i>
+                  { (retry && state !== 'success' && state !== 'loading') && <FailedJobActionButton onClick={retry}>↻ {t('progressbar.button.retry')}</FailedJobActionButton> }
+                  { (error && state === 'error') && <FailedJobActionButton onClick={() => showErrorModal(name, state, timeTaken, error)}>■ {t('progressbar.button.showError')}</FailedJobActionButton> }
+                  { (error && state === 'skipped') && <FailedJobActionButton onClick={() => showErrorModal(name, state, timeTaken, error, true)}>■ {t('progressbar.button.showReason')}</FailedJobActionButton> }
+                </li>
+              ))
+            }
       </ul>
       { loadStatus.filter((val: LoadingJob) => val.state === 'error').length > 0 &&
         <p className="error">
-          <b>Check the browser console for logs and more info</b><br />
-          It's normal for some jobs to fail, either because the host doesn't return the required info,
-          or restrictions in the lambda function, or hitting an API limit.
-        </p>}
-        <AboutPageLink href="/about" target="_blank" rel="noreferer" >Learn More about Web-Check</AboutPageLink>
+        <b>{t('progressbar.error.checkConsole')}</b><br />
+        {t('progressbar.error.explanation')}
+      </p>}
+      <AboutPageLink href="/about" target="_blank" rel="noreferer">{t('progressbar.link.learnMore')}</AboutPageLink>
     </Details>
-    <DismissButton onClick={() => setHideLoader(true)}>Dismiss</DismissButton>
+    <DismissButton onClick={() => setHideLoader(true)}>{t('progressbar.button.dismiss')}</DismissButton>
   </LoadCard>
   </>
   );

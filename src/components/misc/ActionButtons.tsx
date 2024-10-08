@@ -23,7 +23,7 @@ const actionButtonStyles = `
   text-align: center;
   width: 1.5rem;
   height: 1.5rem;
-  color: red;
+  color: #86a5d9;
   background: none;
   box-shadow: none;
   transition: all 0.2s ease-in-out;
@@ -31,8 +31,8 @@ const actionButtonStyles = `
   display: flex;
   align-items: center;
   &:hover {
-    color: red;
-    background: red;
+    color: #b288ff;
+    background: none;
     box-shadow: none;
   }
 `;

@@ -4,9 +4,11 @@ import colors from 'styles/colors';
 import { Card } from 'components/Form/Card';
 import Button from 'components/Form/Button';
 
+import { useTranslation } from 'react-i18next';
+
 const CardStyles = `
 margin: 0 auto 1rem auto;
-width: 95vw;
+width: 100%;
 position: relative;
 transition: all 0.2s ease-in-out;
 display: flex;
@@ -40,6 +42,7 @@ const StyledIframe = styled.iframe`
 `;
 
 const ViewRaw = (props: { everything: { id: string, result: any}[] }) => {
+  const { t } = useTranslation(); 
   const [resultUrl, setResultUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -64,7 +67,7 @@ const ViewRaw = (props: { everything: { id: string, result: any}[] }) => {
       })
     });
     if (!response.ok) {
-      setError(`HTTP error! status: ${response.status}`);
+      setError(t('viewRaw.error', { status: response.status }));
     } else {
       setError(null);
     }
@@ -83,23 +86,20 @@ const ViewRaw = (props: { everything: { id: string, result: any}[] }) => {
     URL.revokeObjectURL(url);
   }
   return (
-    <Card heading="View / Download Raw Data" styles={CardStyles}>
+    <Card heading={t('viewRaw.heading')} styles={CardStyles}>
       <div className="controls">
-        <Button onClick={handleDownload}>Download Results</Button>
-        <Button onClick={fetchResultsUrl}>{resultUrl ? 'Update Results' : 'View Results'}</Button>
-        { resultUrl && <Button onClick={() => setResultUrl('') }>Hide Results</Button> }
+        <Button onClick={handleDownload}>{t('viewRaw.download')}</Button>
+        <Button onClick={fetchResultsUrl}>{resultUrl ? t('viewRaw.update') : t('viewRaw.view')}</Button>
+        { resultUrl && <Button onClick={() => setResultUrl('')}>{t('viewRaw.hide')}</Button> }
       </div>
       { resultUrl && !error &&
       <>
-        <StyledIframe title="Results, via JSON Hero" src={resultUrl} />
-        <small>Your results are available to view <a href={resultUrl}>here</a>.</small>
+        <StyledIframe title={t('viewRaw.iframeTitle')} src={resultUrl} />
+        <small>{t('viewRaw.available')} <a href={resultUrl}> {t('viewRaw.here')}</a>.</small>
       </>
       }
       { error && <p className="error">{error}</p> }
-      <small>
-        These are the raw results generated from your URL, and in JSON format.
-        You can import these into your own program, for further analysis.
-      </small>
+      <small>{t('viewRaw.info')}</small>
     </Card>
   );
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Card } from 'components/Form/Card';
+import { useTranslation } from 'react-i18next';
 
 const ResourceListOuter = styled.ul`
 list-style: none;
@@ -12,28 +13,25 @@ li a.resource-wrap {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 0.25rem;
   padding: 0.25rem 0.5rem;
-  background: red;
+  background: #f1f6f1;
   border-radius: 8px;
   text-decoration: none;
-  color: red;
+  color: #333333;
   height: 100%;
-
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   border: none;
   border-radius: 0.25rem;
   box-sizing: border-box; 
   width: -moz-available;
-  box-shadow: 3px 3px 0px red;
   &:hover {
-    box-shadow: 5px 5px 0px red
+    background: #eae9e9;
     ;
     a { opacity: 1; }
   }
   &:active {
-    box-shadow: -3px -3px 0px red;
+    background: #d7e0e9;
   }
 }
 img {
@@ -66,7 +64,7 @@ p, a {
   flex-direction: column;
   gap: 0.1rem;
   .resource-description {
-    color: red;
+    color: #333333;
     font-size: 0.9rem;
   }
 }
@@ -81,7 +79,7 @@ const Note = styled.small`
 
 const CardStyles = `
   margin: 0 auto 1rem auto;
-  width: 95vw;
+  width: 100;
   position: relative;
   transition: all 0.2s ease-in-out;
 `;
@@ -210,7 +208,8 @@ const makeLink = (resource: any, scanUrl: string | undefined): string => {
 };
 
 const AdditionalResources = (props: { url?: string }): JSX.Element => {
-  return (<Card heading="External Tools for Further Research" styles={CardStyles}>
+  const { t } = useTranslation();
+  return (<Card heading={t('additionalresources.heading')} styles={CardStyles}>
     <ResourceListOuter>
       {
         resources.map((resource, index) => {
@@ -234,9 +233,10 @@ const AdditionalResources = (props: { url?: string }): JSX.Element => {
       }
     </ResourceListOuter>
     <Note>
-      These tools are not affiliated with Web-Check. Please use them at your own risk.<br />
-      At the time of listing, all of the above were available and free to use
-      - if this changes, please report it via GitHub (<a href="https://github.com/lissy93/web-check">lissy93/web-check</a>).
+      {t('additionalresources.note.disclaimer')}
+      <br />
+      {t('additionalresources.note.availability')} 
+      <a href="#"> Reportar</a>.
     </Note>
   </Card>);
 }

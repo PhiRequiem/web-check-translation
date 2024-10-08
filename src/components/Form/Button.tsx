@@ -23,19 +23,16 @@ const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   gap: 1rem;
-  box-shadow: 3px 3px 0px red;
   &:hover {
-    box-shadow: 5px 5px 0px red;
   }
   &:active {
-    box-shadow: -3px -3px 0px red;
   }
   ${props => applySize(props.size)};
   ${(props) => props.bgColor ?
-    `background: ${props.bgColor};` : `background: red;`
+    `background: ${props.bgColor};` : `background: #86a5d9;`
   }
   ${(props) => props.fgColor ?
-    `color: ${props.fgColor};` : `color:red;`
+    `color: ${props.fgColor};` : `color:white;`
   }
   ${props => props.styles}
 `;
