@@ -236,7 +236,7 @@ const AdditionalResources = (props: { url?: string }): JSX.Element => {
       {t('additionalresources.note.disclaimer')}
       <br />
       {t('additionalresources.note.availability')} 
-      <a href="#"> Reportar</a>.
+      <a href="/"> Reportar</a>.
     </Note>
   </Card>);
 }
