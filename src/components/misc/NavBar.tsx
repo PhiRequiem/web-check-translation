@@ -28,7 +28,7 @@ const Menu = (): JSX.Element => {
             <div className="container py-1 d-flex align-items-center">
                 <div className="text-start">
                 <a className="navbar-brand fw-bold fs-3 me-0" href="https://chequea.la">
-                <i className="bi bi-search-heart pe-2"></i>{t('navbar.brand')}
+                <i className="bi bi-search-heart pe-2 d-inline-block rotate"></i>{t('navbar.brand')}
                 </a>
                 <form className="form-inline d-inline-flex form-select-xs">
                   <select className='form-control form-control-sm' onChange={changeLanguage} value={i18n.language}>

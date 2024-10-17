@@ -141,6 +141,7 @@ form-btn:hover {
 .navbar .navbar-brand {
   color: var(--vt-blue);
   text-decoration: none;
+  transition-duration: 0.3s;
 }
 .navbar .navbar-brand:hover, .navbar .navbar-brand:active {
   color: var(--vt-purple-soft);
@@ -148,6 +149,14 @@ form-btn:hover {
 }
 .navbar .navbar-brand i {
   color: var(--vt-purple-soft);
+  transition: transform 0.3s ease-in-out;
+}
+.navbar .navbar-brand:hover {
+  color: var(--vt-purple-soft);
+}
+.navbar .navbar-brand:hover .rotate {
+  transition: 0.3s;
+  transform: rotate(-10deg);
 }
 
 .form-control-sm {
@@ -182,3 +191,4 @@ i {
   background-color: var(--vt-purple-soft)  !important;
   transition-duration: 1s !important;
 }
+
