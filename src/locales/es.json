@@ -58,7 +58,7 @@
       "took": "Tardó"
     },
     "link": {
-      "learnMore": "Aprende más sobre Web-Check"
+      "learnMore": "Aprende más sobre Vení OSINT"
     },
     "status": {
       "loading": "Cargando",
@@ -109,5 +109,43 @@
     "iframeTitle": "Resultados, vía JSON Hero",
     "error": "¡Error HTTP! Estado: {{status}}",
     "info": "Estos son los resultados en bruto generados desde tu URL, en formato JSON. Puedes importarlos a tu propio programa para más análisis."
+  },
+  "docContent": {
+    "about": "Acerca de",
+    "useCases": "Casos de Uso",
+    "links": "Enlaces",
+    "example": "Ejemplo",
+    "screenshotAlt": "Captura de pantalla",
+    "noDocsProvided": "No se han proporcionado documentos para este widget aún"
+  },
+  "loader": {
+    "crunchingData": "Procesando datos...",
+    "loadTimeInfo": "Puede tardar hasta un minuto en completar todos los trabajos\nPuedes ver los resultados preliminares a medida que se vayan generando"
+  },
+  "errorBoundary": {
+    "errorText": "Este componente ha fallado inesperadamente",
+    "errorDetails": "Detalles del error",
+    "errorInstructions": "Esto suele suceder si el resultado del servidor no era lo que se esperaba. Revisa los registros para obtener más información. Si sigues experimentando este problema, por favor levanta un ticket en el repositorio."
+  },
+  "modal": {
+    "close": "Cerrar"
+  },
+  "about": {
+    "viewOnGitHub": "Ver en GitHub",
+    "intro": "Introducción",
+    "features": "Características",
+    "content": "Contenido",
+    "description": "Descripción",
+    "useCases": "Casos de uso",
+    "usefulLinks": "Enlaces útiles",
+    "fCap1": "Fig",
+    "fCap2": "Ejemplo de",
+    "additionalResources": "Recursos Adicionales",
+    "termsAndInfo": "Términos e Información",
+    "responsibleUse": "Uso Responsable",
+    "privacy": "Privacidad",
+    "privacyDescription": "Se utilizan análisis en la instancia de Netlify. Esto solo registra la URL que visitaste, sin recopilar datos personales. También hay un registro básico de errores, que se utiliza únicamente para ayudar a corregir errores.\n\nTu dirección IP, información del navegador/SO/hardware, u otros datos no se recopilan ni registran. (Puedes verificar esto tú mismo, ya sea inspeccionando el código fuente o utilizando herramientas de desarrollador)."
   }
+  
+  
 }

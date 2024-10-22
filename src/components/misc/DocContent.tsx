@@ -26,11 +26,11 @@ const DocContent = (id: string) => {
   return (
     doc? (<JobDocsContainer>
       <Heading as="h3" size="medium" color="red">{doc.title}</Heading>
-      <Heading as="h4" size="small">About</Heading>
+      <Heading as="h4" size="small">Acerca de</Heading>
       <p className="doc-desc">{doc.description}</p>
-      <Heading as="h4" size="small">Use Cases</Heading>
+      <Heading as="h4" size="small">Casos de Uso</Heading>
       <p className="doc-uses">{doc.use}</p>
-      <Heading as="h4" size="small">Links</Heading>
+      <Heading as="h4" size="small">Enlaces</Heading>
       <ul>
         {doc.resources.map((resource: string | { title: string, link: string } , index: number) => (
           typeof resource === 'string' ? (
@@ -41,13 +41,13 @@ const DocContent = (id: string) => {
         ))}
       </ul>
       <details>
-        <summary><Heading as="h4" size="small">Example</Heading></summary>
+        <summary><Heading as="h4" size="small">Ejemplo</Heading></summary>
         <img width="300" src={doc.screenshot} alt="Screenshot" />
       </details>
     </JobDocsContainer>)
   : (
     <JobDocsContainer>
-      <p>No Docs provided for this widget yet</p>
+      <p>Estos son los resultados en bruto generados desde tu URL, en formato JSON. Puedes importarlos a tu propio programa para más análisis.</p>
     </JobDocsContainer>
     ));
 };

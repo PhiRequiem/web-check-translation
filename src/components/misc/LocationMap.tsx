@@ -27,8 +27,8 @@ const MapChart = (location: Props) => {
     >
       <Geographies
         geography={MapFeatures}
-        fill="black"
-        stroke="blue"
+        fill="#86a5d9"
+        stroke="#f1f6f1"
         strokeWidth={0.5}
       >
         {({ geographies }: any) =>
@@ -42,12 +42,12 @@ const MapChart = (location: Props) => {
         dx={-80}
         dy={-80}
         connectorProps={{
-          stroke: "red",
+          stroke: "#804fdc",
           strokeWidth: 3,
           strokeLinecap: "round"
         }}
       >
-        <text x="-8" textAnchor="end" fill="red" fontSize={25}>
+        <text x="-8" textAnchor="end" fill="#804fdc" fontSize={25}>
           {label || "Server"}
         </text>
       </Annotation>

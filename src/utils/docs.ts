@@ -52,6 +52,98 @@ const docs: Doc[] = [
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+  {
+    id: "cookies",
+    title: "Cookies",
+    description:
+      "El análisis de cookies implica examinar las cookies HTTP que el sitio web objetivo establece en el navegador. Las cookies son pequeños fragmentos de datos almacenados en la computadora del usuario mientras navega por un sitio web. Contienen información específica sobre el sitio y el usuario, como preferencias del sitio, el estado de la sesión o datos de seguimiento.",
+    use: 
+      "Las cookies pueden revelar cómo el sitio web rastrea e interactúa con sus usuarios. Por ejemplo, las cookies de sesión muestran cómo se gestionan las sesiones de los usuarios, y las cookies de rastreo pueden dar pistas sobre los marcos de seguimiento o análisis que utiliza el sitio. Examinar las políticas de cookies y su uso también puede ofrecer una idea sobre la seguridad del sitio y su cumplimiento con regulaciones de privacidad.",
+    resources: [
+      { title: 'Documentación sobre cookies HTTP (Mozilla)', link: 'https://developer.mozilla.org/es/docs/Web/HTTP/Cookies' },
+      { title: '¿Qué son las cookies? (vía Cloudflare Learning)', link: 'https://www.cloudflare.com/es-mx/learning/privacy/what-are-cookies/' },
+      { title: 'Pruebas de atributos de cookies (OWASP)', link: 'https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes' },
+      { title: 'RFC-6265 - Cookies', link: 'https://tools.ietf.org/html/rfc6265' },
+    ],
+    screenshot: 'https://i.ibb.co/TTQ6DtP/wc-cookies.png',
+  },
+  {
+    id: "robots-txt",
+    title: "Reglas de rastreo",
+    description:
+      "El archivo robots.txt se encuentra (normalmente) en la raíz del dominio y se utiliza para implementar el Protocolo de Exclusión de Robots (REP). Este archivo indica qué páginas deben ser ignoradas por ciertos rastreadores y bots. Aunque es útil para evitar que los motores de búsqueda sobrecarguen tu sitio, no debe usarse para excluir páginas de los resultados de búsqueda (para eso se debe usar la etiqueta meta 'noindex' o la cabecera HTTP).",
+    use: 
+      "Revisar el archivo robots.txt durante una investigación puede ser útil, ya que a veces revela directorios o páginas que el propietario del sitio no desea que sean indexados, lo que podría indicar la existencia de información sensible o páginas ocultas. Además, entender las reglas de rastreo puede proporcionar pistas sobre las estrategias de SEO del sitio.",
+    resources: [
+      { title: 'Documentación de Google Search - Robots.txt', link: 'https://developers.google.com/search/docs/advanced/robots/intro' },
+      { title: 'Aprende sobre robots.txt (vía Moz.com)', link: 'https://moz.com/learn/seo/robotstxt' },
+      { title: 'RFC-9309 - Protocolo de Exclusión de Robots', link: 'https://datatracker.ietf.org/doc/rfc9309/' },
+      { title: 'Robots.txt - Wikipedia', link: 'https://es.wikipedia.org/wiki/Estándar_de_exclusión_de_robots' },
+    ],
+    screenshot: 'https://i.ibb.co/KwQCjPf/wc-robots.png',
+  },
+  {
+    id: "headers",
+    title: "Cabeceras",
+    description:
+      "Este análisis consiste en extraer e interpretar las cabeceras HTTP que envía el sitio web durante el ciclo de solicitud-respuesta. Las cabeceras HTTP son pares clave-valor que se envían al inicio de una respuesta HTTP, antes de que se transfieran los datos reales. Contienen directivas importantes sobre cómo gestionar la transferencia de datos, como las políticas de caché, tipos de contenido, codificación, información del servidor y políticas de seguridad.",
+    use: 
+      "Analizar las cabeceras HTTP puede brindar información valiosa en una investigación OSINT. Las cabeceras pueden revelar configuraciones específicas del servidor, tecnologías usadas, directivas de caché y diversas medidas de seguridad. Esta información puede ayudar a determinar la infraestructura tecnológica del sitio, las medidas de seguridad implementadas, vulnerabilidades potenciales y prácticas operacionales generales.",
+    resources: [
+      { title: 'Cabeceras HTTP - Documentación', link: 'https://developer.mozilla.org/es/docs/Web/HTTP/Headers' },
+      { title: 'RFC-7231 Sección 7 - Cabeceras', link: 'https://datatracker.ietf.org/doc/html/rfc7231#section-7' },
+      { title: 'Lista de campos de respuesta en cabeceras', link: 'https://es.wikipedia.org/wiki/Lista_de_campos_de_cabecera_HTTP' },
+      { title: 'Proyecto de cabeceras seguras (OWASP)', link: 'https://owasp.org/www-project-secure-headers/' },
+    ],
+    screenshot: 'https://i.ibb.co/t3xcwP1/wc-headers.png',
+  },
+  {
+    id: "quality",
+    title: "Métricas de calidad",
+    description:
+      "Usando Lighthouse, esta tarea mide el rendimiento, accesibilidad, mejores prácticas y SEO del sitio web objetivo. Devuelve una lista simple de 100 métricas clave, junto con una puntuación para cada categoría, para evaluar la calidad general del sitio.",
+    use: 
+      "Es útil para evaluar la salud técnica del sitio, identificar problemas de SEO, detectar vulnerabilidades y garantizar el cumplimiento con estándares técnicos.",
+    resources: [
+      { title: 'Documentación de Lighthouse', link: 'https://developer.chrome.com/docs/lighthouse/' },
+      { title: 'Herramientas de Google Page Speed', link: 'https://developers.google.com/speed' },
+      { title: 'Herramientas de accesibilidad de W3', link: 'https://www.w3.org/WAI/test-evaluate/' },
+      { title: 'Consola de búsqueda de Google', link: 'https://search.google.com/search-console' },
+      { title: 'Verificador de SEO', link: 'https://www.seobility.net/es/seocheck/' },
+      { title: 'PWA Builder', link: 'https://www.pwabuilder.com/' },
+    ],
+    screenshot: 'https://i.ibb.co/Kqg8rx7/wc-quality.png',
+  },
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     id: "location",
     title: "Ubicación del Servidor",

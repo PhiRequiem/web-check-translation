@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import colors from 'styles/colors';
 import Button from 'components/Form/Button';
+import { useTranslation } from 'react-i18next';
 
 interface ModalProps {
 children: React.ReactNode;
@@ -50,6 +51,7 @@ const ModalWindow = styled.div`
 `;
 
 const Modal: React.FC<ModalProps> = ({ children, isOpen, closeModal }) => {
+const { t } = useTranslation();
 const handleOverlayClick = (e: React.MouseEvent<HTMLElement>) => {
 if (e.target === e.currentTarget) {
 closeModal();
@@ -80,7 +82,7 @@ return ReactDOM.createPortal(
 <Overlay onClick={handleOverlayClick}>
 <ModalWindow>
 {children}
-<Button onClick={closeModal} styles="width: fit-content;float: right;">Close</Button>
+<Button onClick={closeModal} styles="width: fit-content;float: right;">{t('modal.close')}</Button>
 </ModalWindow>
 </Overlay>,
 document.body,

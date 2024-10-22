@@ -110,6 +110,7 @@ const Home = (): JSX.Element => {
             <p>{t('home.paragraph1')}</p>
             <p>{t('home.paragraph2')}</p>
             <p className='mb-0'>{t('home.paragraph3')}</p>
+            <br/>
             <p className='mb-0'>Veni OSINT es una herramienta integral basada en el proyecto de código abierto desarrollado por <a href="https://aliciasykes.com" rel="noreferrer" target="_blank">Alicia Sykes</a></p>
             <p className='mb-0'><a href="about">más sobre Vení OSINT</a></p>
 

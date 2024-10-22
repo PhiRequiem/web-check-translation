@@ -54,7 +54,7 @@ const NotFound = (): JSX.Element => {
       <span className="im-drink">🥴</span>
       <Heading as="h3" size="large" color="red">Not Found</Heading>
       <HeaderLinkContainer>
-        <a href="/"><Button>Back to Homepage</Button></a>
+        <a href="/"><Button>Regresar</Button></a>
       </HeaderLinkContainer>
       <a href="https://github.com/lissy93/web-check">Report Issue</a>
     </NotFoundInner>

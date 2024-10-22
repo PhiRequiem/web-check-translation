@@ -59,7 +59,7 @@
       "took": "Took"
     },
     "link": {
-      "learnMore": "Learn More about Web-Check"
+      "learnMore": "Learn More about Vení OSINT"
     },
     "status": {
       "loading": "Loading",
@@ -110,5 +110,42 @@
     "iframeTitle": "Results, via JSON Hero",
     "error": "HTTP error! status: {{status}}",
     "info": "These are the raw results generated from your URL, and in JSON format. You can import these into your own program, for further analysis."
+  },
+  "docContent": {
+    "about": "About",
+    "useCases": "Use Cases",
+    "links": "Links",
+    "example": "Example",
+    "screenshotAlt": "Screenshot",
+    "noDocsProvided": "No Docs provided for this widget yet"
+  },
+  "loader": {
+    "crunchingData": "Crunching data...",
+    "loadTimeInfo": "It may take up-to a minute for all jobs to complete\nYou can view preliminary results as they come in below"
+  },
+  "errorBoundary": {
+    "errorText": "This component errored unexpectedly",
+    "errorDetails": "Error Details",
+    "errorInstructions": "Usually this happens if the result from the server was not what was expected. Check the logs for more info. If you continue to experience this issue, please raise a ticket on the repository."
+  },
+  "modal": {
+     "close": "Close"
+  },
+  "about": {
+    "viewOnGitHub": "View on GitHub",
+    "intro": "Intro",
+    "features": "Features",
+    "content": "Content",
+    "description": "Description",
+    "useCases": "Use Cases",
+    "usefulLinks": "Useful Links",
+    "fCap1": "Fig",
+    "fCap2": "Example of",
+    "additionalResources": "Additional Resources",
+    "termsAndInfo": "Terms and Information",
+    "responsibleUse": "Responsible Use",
+    "privacy": "Privacy",
+    "privacyDescription": "Analytics are used on the Netlify instance. This only logs the URL you visited, without collecting personal data. Basic error logging is also present, used solely to help fix bugs.\n\nYour IP address, browser/OS/hardware information, or any other data will not be collected or recorded. (You can verify this yourself, either by inspecting the source code or using developer tools)."
   }
+  
 }

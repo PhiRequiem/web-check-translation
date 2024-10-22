@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { useTranslation } from 'react-i18next';
 import Heading from 'components/Form/Heading';
 import Nav from 'components/Form/Nav';
 import Button from 'components/Form/Button';
@@ -102,16 +102,17 @@ const makeAnchor = (title: string): string => {
 };
 
 const About = (): JSX.Element => {
+  const { t } = useTranslation(); 
   return (
     <div>
     <AboutContainer>
       <Nav>
         <HeaderLinkContainer>
-          <a href="https://github.com/PhiRequiem/web-check-translation"><Button>Ver en GitHub</Button></a>
+          <a href="https://github.com/PhiRequiem/web-check-translation"><Button>{t('about.viewOnGitHub')}</Button></a>
         </HeaderLinkContainer>
       </Nav>
 
-      <Heading as="h2" size="medium" >Intro</Heading>
+      <Heading as="h2" size="medium" >{t('about.intro')}</Heading>
       <Section>
         {about.map((para, index: number) => (
           <p key={index}>{para}</p>
@@ -119,11 +120,11 @@ const About = (): JSX.Element => {
         <hr />
       </Section>
       
-      <Heading as="h2" size="medium">Características</Heading>
+      <Heading as="h2" size="medium">{t('about.features')}</Heading>
       <Section>
         {featureIntro.map((fi: string, i: number) => (<p key={i}>{fi}</p>))}
         <div className="contents">
-        <Heading as="h3" size="small" id="#feature-contents">Contenido</Heading>
+        <Heading as="h3" size="small" id="#feature-contents">{t('about.content')}</Heading>
           <ul>
             {docs.map((section, index: number) => (
               <li>
@@ -140,20 +141,20 @@ const About = (): JSX.Element => {
             {section.screenshot &&
               <figure className="example-screenshot">
                 <img className="screenshot" src={section.screenshot} alt={`Example Screenshot ${section.title}`} />
-                <figcaption>Fig.{sectionIndex + 1} - Example of {section.title}</figcaption>
+                <figcaption>{t('about.fCap1')}.{sectionIndex + 1} - {t('about.fCap2')} {section.title}</figcaption>
               </figure> 
             }
             {section.description && <>
-              <Heading as="h4" size="small">Descripción</Heading>
+              <Heading as="h4" size="small">{t('about.description')}</Heading>
 
               <p>{section.description}</p>
             </>}
             { section.use && <>
-              <Heading as="h4" size="small">Casos de uso</Heading>
+              <Heading as="h4" size="small">{t('about.useCases')}</Heading>
               <p>{section.use}</p>
             </>}
             {section.resources && section.resources.length > 0 && <>
-              <Heading as="h4" size="small">Enlaces útiles</Heading>
+              <Heading as="h4" size="small">{t('about.usefulLinks')}</Heading>
               <ul>
                 {section.resources.map((link: string | { title: string, link: string }, linkIndx: number) => (
                   typeof link === 'string' ? (
@@ -170,26 +171,21 @@ const About = (): JSX.Element => {
 
       
 
-      <Heading as="h2" size="medium">Recursos Adicionales</Heading>
+      <Heading as="h2" size="medium">{t('about.additionalResources')}</Heading>
       <AdditionalResources />
 
       
 
-      <Heading as="h2" size="medium" >Términos e Información</Heading>
+      <Heading as="h2" size="medium" >{t('about.termsAndInfo')}</Heading>
       <Section>
-  <Heading as="h3" size="small" >Uso Responsable</Heading>
+  <Heading as="h3" size="small" >{t('about.responsibleUse')}</Heading>
   <ul>
     {fairUse.map((para, index: number) => (<li key={index}>{para}</li>))}
   </ul>
   <hr />
-  <Heading as="h3" size="small" >Privacidad</Heading>
+  <Heading as="h3" size="small" >{t('about.privacy')}</Heading>
   <p>
-    Se utilizan análisis en la instancia de Netlify. Esto solo registra la URL que visitaste, sin recopilar datos personales.
-    También hay un registro básico de errores, que se utiliza únicamente para ayudar a corregir errores.
-    <br />
-    <br />
-    Tu dirección IP, información de navegador/SO/hardware, ni ningún otro dato será recopilado o registrado.
-    (Puedes verificarlo tú mismo, ya sea inspeccionando el código fuente o utilizando las herramientas de desarrollo).
+  {t('about.privacyDescription')}
   </p>
 </Section>
 
