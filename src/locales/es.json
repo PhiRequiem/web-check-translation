@@ -145,6 +145,16 @@
     "responsibleUse": "Uso Responsable",
     "privacy": "Privacidad",
     "privacyDescription": "Se utilizan análisis en la instancia de Netlify. Esto solo registra la URL que visitaste, sin recopilar datos personales. También hay un registro básico de errores, que se utiliza únicamente para ayudar a corregir errores.\n\nTu dirección IP, información del navegador/SO/hardware, u otros datos no se recopilan ni registran. (Puedes verificar esto tú mismo, ya sea inspeccionando el código fuente o utilizando herramientas de desarrollador)."
+  },
+
+
+  "serverLocation": {
+    "city": "Ciudad",
+    "country": "País",
+    "timezone": "Zona horaria",
+    "languages": "Idiomas",
+    "currency": "Moneda",
+    "latitude_longitude": "Latitud: {{latitude}}, Longitud: {{longitude}}"
   }
   
   

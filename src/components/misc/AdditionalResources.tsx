@@ -43,7 +43,7 @@ p, a {
   margin: 0;
 }
 .resource-link {
-  color: blue;
+  color: #86a5d9;
   opacity: 0.75;
   font-size: 0.9rem;
   transition: all 0.2s ease-in-out;
@@ -74,7 +74,7 @@ const Note = styled.small`
   margin-top: 1rem;
   opacity: 0.5;
   display: block;
-  a { color: blue}
+  a { color: #86a5d9}
 `;
 
 const CardStyles = `

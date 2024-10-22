@@ -5,6 +5,7 @@ import { Card } from 'components/Form/Card';
 import LocationMap from 'components/misc/LocationMap';
 import Flag from 'components/misc/Flag';
 import Row, { StyledRow } from 'components/Form/Row';
+import { useTranslation } from 'react-i18next'; 
 
 const cardStyles = '';
 
@@ -25,6 +26,7 @@ gap: 0.5rem;
 `;
 
 const ServerLocationCard = (props: { data: ServerLocation, title: string, actionButtons: any }): JSX.Element => {
+const { t } = useTranslation(); 
 const location = props.data;
 const {
 city, region, country,
@@ -34,21 +36,21 @@ isp, timezone, languages, currency, currencyCode,
 
 return (
 <Card heading={props.title} actionButtons={props.actionButtons} styles={cardStyles}>
-<Row lbl="City" val={`${postCode}, ${city}, ${region}`} />
-<Row lbl="" val="">
-<b>Country</b>
-<CountryValue>
-{country}
-{ countryCode && <Flag countryCode={countryCode} width={28} /> }
-</CountryValue>
-</Row>
-<Row lbl="Timezone" val={timezone} />
-<Row lbl="Languages" val={languages} />
-<Row lbl="Currency" val={`${currency} (${currencyCode})`} />
-<MapRow>
-<LocationMap lat={coords.latitude} lon={coords.longitude} label={`Server (${isp})`} />
-<SmallText>Latitude: {coords.latitude}, Longitude: {coords.longitude} </SmallText>
-</MapRow>
+    <Row lbl={t('city')} val={`${postCode}, ${city}, ${region}`} />
+    <Row lbl="" val="">
+        <b>{t('country')}</b>
+        <CountryValue>
+            {country}
+            { countryCode && <Flag countryCode={countryCode} width={28} /> }
+        </CountryValue>
+    </Row>
+    <Row lbl={t('timezone')} val={timezone} />
+    <Row lbl={t('languages')} val={languages} />
+    <Row lbl={t('currency')} val={`${currency} (${currencyCode})`} />
+    <MapRow>
+        <LocationMap lat={coords.latitude} lon={coords.longitude} label={`Server (${isp})`} />
+        <SmallText>{t('latitude_longitude', { latitude: coords.latitude, longitude: coords.longitude })}</SmallText>
+    </MapRow>
 </Card>
 );
 }

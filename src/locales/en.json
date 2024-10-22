@@ -146,6 +146,17 @@
     "responsibleUse": "Responsible Use",
     "privacy": "Privacy",
     "privacyDescription": "Analytics are used on the Netlify instance. This only logs the URL you visited, without collecting personal data. Basic error logging is also present, used solely to help fix bugs.\n\nYour IP address, browser/OS/hardware information, or any other data will not be collected or recorded. (You can verify this yourself, either by inspecting the source code or using developer tools)."
+  },
+
+
+  
+  "serverLocation": {
+    "city": "City",
+    "country": "Country",
+    "timezone": "Timezone",
+    "languages": "Languages",
+    "currency": "Currency",
+    "latitude_longitude": "Latitude: {{latitude}}, Longitude: {{longitude}}"
   }
   
 }

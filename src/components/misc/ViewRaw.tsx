@@ -14,7 +14,7 @@ transition: all 0.2s ease-in-out;
 display: flex;
 flex-direction: column;
 a {
-  color: blue;
+  color: #86a5d9;
 }
 .controls {
   display: flex;

@@ -118,15 +118,15 @@ const FilterButtons = styled.div`
       color: white;
     }
     &.selected {
-      color: blue;
+      color: #86a5d9;
     }
   }
   input:focus {
-    border: 1px solid blue;
+    border: 1px solid #86a5d9;
     outline: none;
   }
   .clear {
-    color: blue;
+    color: #86a5d9;
     text-decoration: underline;
     cursor: pointer;
     font-size: 0.8rem;

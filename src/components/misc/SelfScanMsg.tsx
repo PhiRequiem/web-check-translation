@@ -5,7 +5,7 @@ import { StyledCard } from 'components/Form/Card';
 const StyledSelfScanMsg = styled(StyledCard)`
   margin: 0px auto 1rem;
   width: 95vw;
-  a { color: blue}
+  a { color: #86a5d9}
   b { font-weight: extra-bold; }
   span, i { opacity: 0.85; }
   img {
